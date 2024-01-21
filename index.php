@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin=anonymous>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I2P Proxy Check</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.ico">
-    <link rel="preload" href="/assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin=anonymous>
+    
         <!-- ... [Defines Crypto Copy to Clipboard function] ... -->
     <script>
         function copyToClipboard(text, elementId) {
