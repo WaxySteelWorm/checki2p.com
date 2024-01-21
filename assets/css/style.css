@@ -79,3 +79,14 @@ footer a {
 footer a:hover {
     text-decoration: underline; /* Optional: adds underline on hover */
 }
+.status-container {
+    display: flex;
+    align-items: center; /* This aligns children (image and text) in the center vertically */
+    justify-content: center; /* This centers children horizontally */
+    text-align: center; /* This centers the text within its container */
+}
+
+.status-light {
+    height: 60px;
+    margin-right: 10px; /* Add some space between the image and the text */
+}

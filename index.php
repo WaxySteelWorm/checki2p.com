@@ -48,10 +48,11 @@
     // Determine which image to display based on the message
     // Show green light if using a known outproxy, red light if not
     $imageSrc = strpos($message, 'NOT using a known outproxy') !== false ? '../assets/images/red_light.svg' : '../assets/images/green_light.svg';
-
-    // Display the image and message
-    echo "<img src='$imageSrc' alt='Status Indicator' style='height: 60px; vertical-align: middle;'> $message";
 ?>
+<div class="status-container">
+    <img src='<?php echo $imageSrc; ?>' alt='Status Indicator' class='status-light'>
+    <div class='status-message'><?php echo $message; ?></div>
+</div>
 
 </div>
     <footer>
