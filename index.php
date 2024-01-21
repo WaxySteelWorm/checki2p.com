@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I2P Proxy Check</title>
     <link rel="stylesheet" href="/assets/css/style.css">
-    
-    <!-- ... [Defines Crypto Copy to Clipboard function] ... -->
+        <!-- ... [Defines Crypto Copy to Clipboard function] ... -->
     <script>
         function copyToClipboard(text, elementId) {
             var textarea = document.createElement("textarea");
@@ -26,13 +25,10 @@
         }
     </script>
 </head>
-
 <body>
-
     <div class="header">
         <img src="../assets/images/logo.svg" alt="Logo" class="logo">
     </div>
-
     <div class="donate-banner">
         Please consider donating:
         <span onclick="copyToClipboard('45Gtj5tkhs4EsbnV7kkhMCRpbZUdqCQqR5qmLFVLAvbFCYaPL4pFbBkEBLJ7beHqkiJxdTBkPwFsT5EMu5jDrYBHPjQzPuv', 'xmr-confirmation')">XMR</span> |  <span onclick="copyToClipboard('LULvg4mJc9Y37hU3sbVTMxJAPyNwyCJHw6', 'ltc-confirmation')">ETH</span> |
@@ -42,7 +38,6 @@
         <span id="ltc-confirmation" class="copy-confirmation">Copied!</span>
         <span id="btc-confirmation" class="copy-confirmation">Copied!</span>
     </div>
-
     <div class="message">
     <?php
         include 'checkproxy.php';
