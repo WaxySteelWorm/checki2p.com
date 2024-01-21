@@ -42,16 +42,17 @@
     </div>
     <div class="message">
     <?php
-        include 'checkproxy.php';
-        $message = checkIfUsingProxy();
+    include 'checkproxy.php';
+    $message = checkIfUsingProxy();
 
-        // Determine which image to display based on the message
-        // Show green light if using a known outproxy, red light if not
-        $imageSrc = strpos($message, 'NOT using a known outproxy') !== false ? '../assets/images/red_light.svg' : '../assets/images/green_light.svg';
+    // Determine which image to display based on the message
+    // Show green light if using a known outproxy, red light if not
+    $imageSrc = strpos($message, 'NOT using a known outproxy') !== false ? '../assets/images/red_light.svg' : '../assets/images/green_light.svg';
 
-        // Display the image and message
-        echo "<img src='$imageSrc' alt='Status Indicator' style='height: 60px; vertical-align: middle;'> $message";
-    ?>
+    // Display the image and message
+    echo "<img src='$imageSrc' alt='Status Indicator' style='height: 60px; vertical-align: middle;'> $message";
+?>
+
 </div>
     <footer>
     Created by <a href=https://stormycloud.org/>stormycloud.org</a> | <a href="https://github.com/WaxySteelWorm/checki2p.com" target="_blank">Github</a> | <a href="https://twitter.com/StormyCloudInc" target="_blank">Twitter</a> | <a href="https://www.instagram.com/stormycloudinc/" target="_blank">Instagram</a>    </footer>
