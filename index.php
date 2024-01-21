@@ -35,7 +35,7 @@
     </div>
 
     <div class="donate-banner">
-        Please consider donating |
+        Please consider donating:
         <span onclick="copyToClipboard('45Gtj5tkhs4EsbnV7kkhMCRpbZUdqCQqR5qmLFVLAvbFCYaPL4pFbBkEBLJ7beHqkiJxdTBkPwFsT5EMu5jDrYBHPjQzPuv', 'xmr-confirmation')">XMR</span> |
         <span onclick="copyToClipboard('LULvg4mJc9Y37hU3sbVTMxJAPyNwyCJHw6', 'ltc-confirmation')">ETH</span> |
         <span onclick="copyToClipboard('1NDRuQNyJZmYK4AJwve1aqa56ntuXpbyA7', 'btc-confirmation')">BTC</span>
@@ -59,10 +59,7 @@
 </div>
 
     <footer>
-        Created by stormycloud.org |
-        <a href="https://github.com/WaxySteelWorm/checki2p.com" target="_blank">Github</a> |
-        <a href="https://twitter.com/StormyCloudInc" target="_blank">Twitter</a> |
-        <a href="https://www.instagram.com/stormycloudinc/" target="_blank">Instagram</a>
+    Created by <a href=https://stormycloud.org/">stormycloud.org</a> | <a href="https://github.com/WaxySteelWorm/checki2p.com" target="_blank">Github</a> | <a href="https://twitter.com/StormyCloudInc" target="_blank">Twitter</a> | <a href="https://www.instagram.com/stormycloudinc/" target="_blank">Instagram</a>
     </footer>
 
     </body>
