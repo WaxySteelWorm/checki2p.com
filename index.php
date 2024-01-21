@@ -57,7 +57,7 @@
         $imageSrc = strpos($message, 'NOT using a known outproxy') !== false ? 'red_light.svg' : 'green_light.svg';
 
         // Display the image and message
-        echo "<img src='$imageSrc' alt='Status Indicator' style='width: 25px; height: 80px; vertical-align: middle;'> $message";
+        echo "<img src='$imageSrc' alt='Status Indicator' style='height: 80px; vertical-align: middle;'> $message";
     ?>
 </div>
 
@@ -70,13 +70,3 @@
 
     </body>
     </html>
-
-    <footer>
-    Created by stormycloud.org |
-    <a href="https://github.com/WaxySteelWorm/checki2p.com" target="_blank">Github</a> |
-    <a href="https://twitter.com/StormyCloudInc" target="_blank">Twitter</a> |
-    <a href="https://www.instagram.com/stormycloudinc/" target="_blank">Instagram</a>
-</footer>
-
-</body>
-</html>
