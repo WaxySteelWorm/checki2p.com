@@ -4,7 +4,7 @@
     font-weight: 100 900;
     font-display: swap;
     src: url("../fonts/InterVariable.woff2") format("woff2");
-    
+}
 body {
     background-color: #f0f8ff;
     text-align: center;
@@ -12,7 +12,6 @@ body {
     padding: 0;
     font-family: InterVariable, sans-serif;
 }
-
 .header {
     padding: 20px;
     background-color: #f8f8f8;
@@ -71,15 +70,12 @@ footer {
     width: 100%;
     font-weight: bold; 
 }
-
 footer a {
     color: white; /* Keep the links white */
     text-decoration: none; 
     margin-left: 10px;
     margin-right: 10px;
 }
-
 footer a:hover {
     text-decoration: underline; /* Optional: adds underline on hover */
 }
-
