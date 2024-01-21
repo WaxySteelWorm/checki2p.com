@@ -44,6 +44,9 @@
     <?php
     include 'checkproxy.php';
     $message = checkIfUsingProxy();
+
+    // Determine which image to display based on the message
+    $imageSrc = strpos($message, 'NOT using a known outproxy') !== false ? '../assets/images/red_light.svg' : '../assets/images/green_light.svg';
 ?>
 
 <div class="status-container">
