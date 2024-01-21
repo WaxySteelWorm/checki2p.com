@@ -1,4 +1,5 @@
-/* Add all your existing CSS here */
+@font-face {font-family: Karla; font-weight: 200 300 400 500 600 700 800; font-style: normal; font-display: swap; src: url(../assets/fonts/karla.woff2) format("woff2")}
+
 body {
     background-color: #f0f8ff;
     text-align: center;
@@ -75,11 +76,6 @@ footer a:hover {
     text-decoration: underline; /* Optional: adds underline on hover */
 }
 
-:root {
-    font-family: Inter, sans-serif;
-    font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
-  }
-  @supports (font-variation-settings: normal) {
-    :root { font-family: InterVariable, sans-serif; }
-  }
-  
+body {
+    font-family: 'Karla', sans-serif;
+}

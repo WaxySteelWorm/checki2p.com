@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I2P Proxy Check</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
     
     <!-- ... [Defines Crypto Copy to Clipboard function] ... -->
     <script>
@@ -34,7 +31,7 @@
 <body>
 
     <div class="header">
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="../assets/images/logo.png" alt="Logo" class="logo">
     </div>
 
     <div class="donate-banner">
@@ -54,7 +51,7 @@
 
         // Determine which image to display based on the message
         // Show green light if using a known outproxy, red light if not
-        $imageSrc = strpos($message, 'NOT using a known outproxy') !== false ? 'red_light.svg' : 'green_light.svg';
+        $imageSrc = strpos($message, 'NOT using a known outproxy') !== false ? '../assets/images/red_light.svg' : '../assets/images/green_light.svg';
 
         // Display the image and message
         echo "<img src='$imageSrc' alt='Status Indicator' style='height: 60px; vertical-align: middle;'> $message";
