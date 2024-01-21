@@ -81,12 +81,15 @@ footer a:hover {
 }
 .status-container {
     display: flex;
-    align-items: center; /* This aligns children (image and text) in the center vertically */
-    justify-content: center; /* This centers children horizontally */
-    text-align: center; /* This centers the text within its container */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
-
 .status-light {
     height: 60px;
-    margin-right: 10px; /* Add some space between the image and the text */
+    margin-right: 10px;
+}
+.connected-text, .location-text {
+    display: inline-block;
+    margin-bottom: 5px; /* Adjust this value as needed */
 }

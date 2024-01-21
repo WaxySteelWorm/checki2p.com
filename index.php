@@ -44,16 +44,12 @@
     <?php
     include 'checkproxy.php';
     $message = checkIfUsingProxy();
-
-    // Determine which image to display based on the message
-    // Show green light if using a known outproxy, red light if not
-    $imageSrc = strpos($message, 'NOT using a known outproxy') !== false ? '../assets/images/red_light.svg' : '../assets/images/green_light.svg';
 ?>
+
 <div class="status-container">
     <img src='<?php echo $imageSrc; ?>' alt='Status Indicator' class='status-light'>
     <div class='status-message'><?php echo $message; ?></div>
 </div>
-
 </div>
     <footer>
     Created by <a href=https://stormycloud.org/>stormycloud.org</a> | <a href="https://github.com/WaxySteelWorm/checki2p.com" target="_blank">Github</a> | <a href="https://twitter.com/StormyCloudInc" target="_blank">Twitter</a> | <a href="https://www.instagram.com/stormycloudinc/" target="_blank">Instagram</a>    </footer>
