@@ -27,7 +27,6 @@
     </script>
 </head>
 
-</head>
 <body>
 
     <div class="header">
