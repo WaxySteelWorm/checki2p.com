@@ -57,7 +57,7 @@
         $imageSrc = strpos($message, 'NOT using a known outproxy') !== false ? 'red_light.svg' : 'green_light.svg';
 
         // Display the image and message
-        echo "<img src='$imageSrc' alt='Status Indicator' style='height: 80px; vertical-align: middle;'> $message";
+        echo "<img src='$imageSrc' alt='Status Indicator' style='height: 60px; vertical-align: middle;'> $message";
     ?>
 </div>
 
