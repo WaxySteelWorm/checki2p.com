@@ -1,4 +1,8 @@
-@font-face {font-family: Karla; font-weight: 200 300 400 500 600 700 800; font-style: normal; font-display: swap; src: url(https://checki2p.com/assets/fonts/karla.woff2) format("woff2")}
+@font-face {font-family: Karla; font-weight: 200 300 400 500 600 700 800; font-style: normal; font-display: swap; src: url(../fonts/karla.woff2) format("woff2")}
+
+body {
+    font-family: Karla, Open Sans, Segoe UI, sans-serif;
+}
 
 body {
     background-color: #f0f8ff;
@@ -68,7 +72,7 @@ footer {
 footer a {
     color: white; /* Keep the links white */
     text-decoration: none; 
-    margin-left: 1px;
+    margin-left: 10px;
     margin-right: 10px;
 }
 
@@ -76,6 +80,3 @@ footer a:hover {
     text-decoration: underline; /* Optional: adds underline on hover */
 }
 
-body {
-    font-family: 'Karla', sans-serif;
-}
