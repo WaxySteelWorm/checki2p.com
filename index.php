@@ -50,7 +50,7 @@
 ?>
 
 <div class="status-container">
-    <img src='<?php echo $imageSrc; ?>' alt='Status Indicator' class='status-light'>
+    <img src='<?php echo $imageSrc; ?>' style='height: 60px; alt='Status Indicator' class='status-light'>
     <div class='status-message'><?php echo $message; ?></div>
 </div>
 </div>
