@@ -30,7 +30,7 @@
 <body>
 
     <div class="header">
-        <img src="../assets/images/check2b.svg" alt="Logo" class="logo">
+        <img src="../assets/images/logo.svg" alt="Logo" class="logo">
     </div>
 
     <div class="donate-banner">
@@ -56,9 +56,7 @@
         echo "<img src='$imageSrc' alt='Status Indicator' style='height: 60px; vertical-align: middle;'> $message";
     ?>
 </div>
-
     <footer>
     Created by <a href=https://stormycloud.org/>stormycloud.org</a> | <a href="https://github.com/WaxySteelWorm/checki2p.com" target="_blank">Github</a> | <a href="https://twitter.com/StormyCloudInc" target="_blank">Twitter</a> | <a href="https://www.instagram.com/stormycloudinc/" target="_blank">Instagram</a>    </footer>
-
     </body>
     </html>
