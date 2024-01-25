@@ -43,15 +43,15 @@
     <div class="message">
     <?php
 include 'checkproxy.php';
-$message = checkIfUsingProxy();
+list($message, $proxyDetails) = checkIfUsingProxy(); // Assuming checkIfUsingProxy now returns an array
 
 // Determine which image to display based on the message
-$usingProxy = strpos($message, 'NOT using a known outproxy') === false;
+$usingProxy = $proxyDetails !== null; // Check if proxy details are present
 $imageSrc = $usingProxy ? '../assets/images/green_light.svg' : '../assets/images/red_light.svg';
 $imageAlt = $usingProxy ? 'Green Light Indicator - Using a known outproxy' : 'Red Light Indicator - Not using a known outproxy';
 ?>
 
-    <div class="status-container">
+<div class="status-container">
         <img src='<?php echo $imageSrc; ?>' alt='<?php echo $imageAlt; ?>' class='status-light'>
         <div class='status-message'><?php echo $message; ?></div>
     </div>
