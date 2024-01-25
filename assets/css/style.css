@@ -1,16 +1,8 @@
-@font-face {
-    font-family: InterVariable;
-    font-style: normal;
-    font-weight: 100 900;
-    font-display: swap;
-    src: url("../fonts/InterVariable.woff2") format("woff2");
-}
 body {
     background-color: #f0f8ff;
     text-align: center;
     margin: 0;
     padding: 0;
-    font-family: InterVariable, sans-serif;
 }
 .header {
     padding: 20px;
