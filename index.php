@@ -42,19 +42,19 @@
     </div>
     <div class="message">
     <?php
-    include 'checkproxy.php';
-    $message = checkIfUsingProxy();
+include 'checkproxy.php';
+$message = checkIfUsingProxy();
 
-    // Determine which image to display based on the message
-    $usingProxy = strpos($message, 'NOT using a known outproxy') === false;
-    $imageSrc = $usingProxy ? '../assets/images/green_light.svg' : '../assets/images/red_light.svg';
-    $imageAlt = $usingProxy ? 'Green Light Indicator - Using a known outproxy' : 'Red Light Indicator - Not using a known outproxy';
+// Determine which image to display based on the message
+$usingProxy = strpos($message, 'NOT using a known outproxy') === false;
+$imageSrc = $usingProxy ? '../assets/images/green_light.svg' : '../assets/images/red_light.svg';
+$imageAlt = $usingProxy ? 'Green Light Indicator - Using a known outproxy' : 'Red Light Indicator - Not using a known outproxy';
 ?>
 
-<div class="status-container">
-    <img src='<?php echo $imageSrc; ?>' alt='<?php echo $imageAlt; ?>' class='status-light'>
-    <div class='status-message'><?php echo $message; ?></div>
-</div>
+    <div class="status-container">
+        <img src='<?php echo $imageSrc; ?>' alt='<?php echo $imageAlt; ?>' class='status-light'>
+        <div class='status-message'><?php echo $message; ?></div>
+    </div>
 </div>
     <footer>
     Created by <a href=https://stormycloud.org/>stormycloud.org</a> | <a href="https://github.com/WaxySteelWorm/checki2p.com" target="_blank">Github</a> | <a href="https://twitter.com/StormyCloudInc" target="_blank">Twitter</a> | <a href="https://www.instagram.com/stormycloudinc/" target="_blank">Instagram</a>    </footer>
