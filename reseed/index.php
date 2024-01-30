@@ -39,12 +39,12 @@
                     echo "<tr>";
                     echo "<td>" . $row["server_name"] . "</td>";
                     if ($row["status"] == "offline") {
-                        echo "<td><span class='dot glowing-red'></span> OFFLINE since " . $row["last_checked"] . "</td>";
+                        $first_offline = $row["first_offline"] ? $row["first_offline"] : $row["last_checked"];
+                        echo "<td><span class='dot glowing-red'></span> OFFLINE since " . $first_offline . "</td>";
                     } else {
                         echo "<td><span class='dot glowing-green'></span> ONLINE</td>";
                     }
                     echo "</tr>";
-                    $last_checked_global = $row["last_checked"];
                 }
 
                 echo "</table>";
