@@ -26,28 +26,34 @@
 
             <div class="message">
             <?php
-include 'db.php';
+include 'db.php'; // Ensure this path is correct for your db.php file
 
 $result = $conn->query("SELECT * FROM server_status ORDER BY server_name");
 
 echo "<table class='status-table'>";
-echo "<tr><th>Server Name</th><th>Status</th></tr>";
+echo "<tr><th>Server Name</th><th>Status</th><th>Details</th></tr>";
 
 while($row = $result->fetch_assoc()) {
-    # ... [existing code] ...
+    echo "<tr>";
+    echo "<td>" . htmlspecialchars($row["server_name"]) . "</td>";
 
+    $status = $row["status"];
+    $status_message = htmlspecialchars($row["status_message"]);
+    $last_checked = new DateTime($row["last_checked"]);
+    $now = new DateTime();
+
+    $details = "";
     if ($status === 'offline') {
-        $first_offline = new DateTime($row["first_offline"]);
+        $first_offline = isset($row["first_offline"]) ? new DateTime($row["first_offline"]) : $last_checked;
         $interval = $first_offline->diff($now);
-        $tooltip = "Offline since " . $first_offline->format('Y-m-d H:i') . " (" . $interval->format('%a days, %h hours, %i minutes') . ")";
+        $details = "Offline since " . $first_offline->format('Y-m-d H:i') . " (" . $interval->format('%a days, %h hours, %i minutes') . ")";
     } elseif ($status === 'warning') {
-        $tooltip = $status_message;
-        $status_text = "WARNING";
+        $details = $status_message;
     }
 
-
     $status_class = $status === 'online' ? 'glowing-green' : ($status === 'offline' ? 'glowing-red' : 'glowing-yellow');
-    echo "<td><div class='status-container' title='$tooltip'><span class='dot $status_class'></span><span class='status-text'>$status_text</span></div></td>";
+    echo "<td><span class='dot $status_class' title='$details'></span> " . strtoupper($status) . "</td>";
+    echo "<td>" . $details . "</td>";
     echo "</tr>";
 }
 
@@ -55,6 +61,7 @@ echo "</table>";
 
 $conn->close();
 ?>
+
 
             </div>
         </div>
