@@ -121,3 +121,6 @@ footer a:hover {
     background-color: #ff0000;
 }
 
+.glowing-yellow {
+    background-color: #ffcc00; /* Yellow color for warning */
+}
