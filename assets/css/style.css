@@ -1,8 +1,15 @@
+html {
+    height: 100%;
+}
 body {
+    min-height: 100%;
     background-color: #f0f8ff;
     text-align: center;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px; /* Adjust this value to match your footer's height */
 }
 .header {
     padding: 20px;
@@ -57,7 +64,7 @@ footer {
     background-color: #333;
     color: white;
     padding: 10px 0;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     font-weight: bold; 
@@ -117,4 +124,8 @@ footer a:hover {
 }
 .glowing-red {
     background-color: #ff0000;
+}
+
+.container {
+    flex: 1;
 }

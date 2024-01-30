@@ -6,25 +6,6 @@
     <title>I2P Reseed Check</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.ico">
-    <style>
-        body {
-            background-color: #f0f8ff;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            padding-bottom: 60px; /* Adjust this value to match your footer's height */
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .content {
-            flex: 1;
-        }
-        /* ... [rest of your existing CSS] ... */
-    </style>
-    <!-- ... [rest of the head] ... -->
 </head>
 <body>
     <div class="container">
