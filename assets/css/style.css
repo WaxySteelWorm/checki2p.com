@@ -146,7 +146,7 @@ footer a:hover {
     cursor: pointer;
 }
 
-.status-text:hover::after, .dot:hover::after {
+.dot:hover::after, .status-text:hover::after {
     content: attr(title);
     position: absolute;
     left: 50%;
