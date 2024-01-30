@@ -106,3 +106,15 @@ footer a:hover {
 .last-checked {
     margin-top: 20px;
 }
+.dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.glowing-green {
+    background-color: #00cd00;
+}
+.glowing-red {
+    background-color: #ff0000;
+}
