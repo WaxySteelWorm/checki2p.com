@@ -28,19 +28,32 @@
             <?php
 include 'db.php';
 
-$result = $conn->query("SELECT * FROM server_status");
+$result = $conn->query("SELECT * FROM server_status ORDER BY server_name");
 
 echo "<table class='status-table'>";
-echo "<tr><th>Server Name</th><th>Status</th></tr>";
+echo "<tr><th>Server Name</th><th>Status</th><th>Details</th></tr>";
 
 while($row = $result->fetch_assoc()) {
     echo "<tr>";
-    echo "<td>" . $row["server_name"] . "</td>";
+    echo "<td>" . htmlspecialchars($row["server_name"]) . "</td>";
+
     $status = $row["status"];
-    $status_display = $status === 'online' ? "<span class='dot glowing-green'></span> ONLINE" :
-                      ($status === 'offline' ? "<span class='dot glowing-red'></span> OFFLINE" :
-                      "<span class='dot glowing-orange'></span> WARNING");
-    echo "<td>" . $status_display . "</td>";
+    $status_message = htmlspecialchars($row["status_message"]);
+    $last_checked = new DateTime($row["last_checked"]);
+    $now = new DateTime();
+
+    if ($status === 'online') {
+        echo "<td><span class='dot glowing-green'></span> ONLINE</td>";
+        echo "<td></td>";
+    } elseif ($status === 'offline') {
+        $interval = $last_checked->diff($now);
+        echo "<td><span class='dot glowing-red'></span> OFFLINE</td>";
+        echo "<td>Offline for " . $interval->format('%a days, %h hours, %i minutes') . "</td>";
+    } else { // Warning
+        echo "<td><span class='dot glowing-yellow'></span> WARNING</td>";
+        echo "<td>$status_message</td>";
+    }
+
     echo "</tr>";
 }
 
@@ -48,6 +61,7 @@ echo "</table>";
 
 $conn->close();
 ?>
+
 
             </div>
         </div>
