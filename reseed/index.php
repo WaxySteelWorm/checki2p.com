@@ -31,7 +31,7 @@ include 'db.php';
 $result = $conn->query("SELECT * FROM server_status ORDER BY server_name");
 
 echo "<table class='status-table'>";
-echo "<tr><th>Server Name</th><th>Status</th><th>Details</th></tr>";
+echo "<tr><th>Server Name</th><th>Status</th></tr>";
 
 while($row = $result->fetch_assoc()) {
     echo "<tr>";
@@ -42,18 +42,16 @@ while($row = $result->fetch_assoc()) {
     $last_checked = new DateTime($row["last_checked"]);
     $now = new DateTime();
 
-    if ($status === 'online') {
-        echo "<td><span class='dot glowing-green'></span> ONLINE</td>";
-        echo "<td></td>";
-    } elseif ($status === 'offline') {
+    $tooltip = "";
+    if ($status === 'offline') {
         $interval = $last_checked->diff($now);
-        echo "<td><span class='dot glowing-red'></span> OFFLINE</td>";
-        echo "<td>Offline for " . $interval->format('%a days, %h hours, %i minutes') . "</td>";
-    } else { // Warning
-        echo "<td><span class='dot glowing-yellow'></span> WARNING</td>";
-        echo "<td>$status_message</td>";
+        $tooltip = "Offline for " . $interval->format('%a days, %h hours, %i minutes');
+    } elseif ($status === 'warning') {
+        $tooltip = $status_message;
     }
 
+    $status_class = $status === 'online' ? 'glowing-green' : ($status === 'offline' ? 'glowing-red' : 'glowing-yellow');
+    echo "<td><span class='dot $status_class' title='$tooltip'></span> " . strtoupper($status) . "</td>";
     echo "</tr>";
 }
 
@@ -61,6 +59,7 @@ echo "</table>";
 
 $conn->close();
 ?>
+
 
 
             </div>
