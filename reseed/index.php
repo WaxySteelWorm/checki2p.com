@@ -49,11 +49,11 @@ while($row = $result->fetch_assoc()) {
         $tooltip = "Offline for " . $interval->format('%a days, %h hours, %i minutes');
     } elseif ($status === 'warning') {
         $tooltip = $status_message;
-        $status_text = "WARNING"; // Ensure the text "WARNING" is displayed
+        $status_text = "WARNING";
     }
 
     $status_class = $status === 'online' ? 'glowing-green' : ($status === 'offline' ? 'glowing-red' : 'glowing-yellow');
-    echo "<td><span class='dot $status_class' title='$tooltip'></span> <span class='status-text' title='$tooltip'>$status_text</span></td>";
+    echo "<td><div class='status-container' title='$tooltip'><span class='dot $status_class'></span><span class='status-text'>$status_text</span></div></td>";
     echo "</tr>";
 }
 
