@@ -34,23 +34,17 @@ echo "<table class='status-table'>";
 echo "<tr><th>Server Name</th><th>Status</th></tr>";
 
 while($row = $result->fetch_assoc()) {
-    echo "<tr>";
-    echo "<td>" . htmlspecialchars($row["server_name"]) . "</td>";
+    # ... [existing code] ...
 
-    $status = $row["status"];
-    $status_message = htmlspecialchars($row["status_message"]);
-    $last_checked = new DateTime($row["last_checked"]);
-    $now = new DateTime();
-
-    $tooltip = "";
-    $status_text = strtoupper($status);
     if ($status === 'offline') {
-        $interval = $last_checked->diff($now);
-        $tooltip = "Offline for " . $interval->format('%a days, %h hours, %i minutes');
+        $first_offline = new DateTime($row["first_offline"]);
+        $interval = $first_offline->diff($now);
+        $tooltip = "Offline since " . $first_offline->format('Y-m-d H:i') . " (" . $interval->format('%a days, %h hours, %i minutes') . ")";
     } elseif ($status === 'warning') {
         $tooltip = $status_message;
         $status_text = "WARNING";
     }
+
 
     $status_class = $status === 'online' ? 'glowing-green' : ($status === 'offline' ? 'glowing-red' : 'glowing-yellow');
     echo "<td><div class='status-container' title='$tooltip'><span class='dot $status_class'></span><span class='status-text'>$status_text</span></div></td>";
@@ -61,11 +55,6 @@ echo "</table>";
 
 $conn->close();
 ?>
-
-
-
-
-
 
             </div>
         </div>
