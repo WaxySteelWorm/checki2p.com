@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I2P Reseed Check</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/reseed.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.ico">
 </head>
