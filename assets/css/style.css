@@ -1,10 +1,9 @@
-
-
 body {
     background-color: #f0f8ff;
     text-align: center;
     margin: 0;
     padding: 0;
+    font-family: helvetica, sans-serif;
 }
 .header {
     padding: 20px;
@@ -200,4 +199,38 @@ footer a:hover {
 
 .custom-footer a:hover {
     text-decoration: underline;
+}
+
+
+/* Banner */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 10px 10px 4px;
+    background: #d3d3d3; /* Adjust the background color as needed */
+    border-bottom: 2px solid black; /* Adjust the border color as needed */
+    animation: down .5s ease .8s both;
+}
+
+header a {
+    font-weight: 700 !important;
+    color: black; /* Adjust the text color as needed */
+    text-decoration: none;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-around;
+    justify-content: right;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 8px;
+}
+
+header li {
+    line-height: 1.6;
+    margin: 0 10px;
 }
