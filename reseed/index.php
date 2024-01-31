@@ -25,7 +25,7 @@
     </div>            </div>
 
             <div class="message">
-            <?php
+<?php
 include 'db.php'; 
 
 $result = $conn->query("SELECT * FROM server_status ORDER BY last_checked DESC");
@@ -70,13 +70,6 @@ if (!empty($last_checked_global)) {
 
 $conn->close();
 ?>
-
-
-
-
-
-
-
             </div>
         </div>
 
