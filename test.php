@@ -8,17 +8,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.ico">
  <style>
 
-header, footer, img {
-    user-select: none;
-}
-
 header {
     position: sticky;
     top: 0;
     z-index: 999;
     padding: 10px 10px 4px;
     background: #d3d3d3; /* Adjust the background color as needed */
-    border-bottom: 2px solid #14476c; /* Adjust the border color as needed */
+    border-bottom: 2px solid black; /* Adjust the border color as needed */
     animation: down .5s ease .8s both;
 }
 
