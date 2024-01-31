@@ -26,6 +26,17 @@
             }, 2000);  // Hide confirmation after 2 seconds
         }
     </script>
+    <header>
+    <span id="homelink"></span>
+    <nav>
+        <ul>
+            <li><a href="outproxy.html">I2P Outproxy</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 </head>
 <body>
     <div class="container">
@@ -95,7 +106,7 @@ $conn->close();
         </div>
     </div>
 
-    <footer class="custom-footer">
+    <footer class="reseed-footer">
     Created by <a href="https://stormycloud.org/">stormycloud.org</a> | 
     <a href="https://github.com/WaxySteelWorm/checki2p.com" target="_blank">Github</a> | 
     <a href="https://twitter.com/StormyCloudInc" target="_blank">Twitter</a> | 
