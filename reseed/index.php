@@ -25,8 +25,8 @@
     </div>            </div>
 
             <div class="message">
-            <?php
-include 'db.php'; // Ensure this path is correct for your db.php file
+<?php
+include 'db.php'; 
 
 $result = $conn->query("SELECT * FROM server_status ORDER BY last_checked DESC");
 
@@ -58,8 +58,7 @@ while($row = $result->fetch_assoc()) {
     }
 
     $status_class = $status === 'online' ? 'glowing-green' : ($status === 'offline' ? 'glowing-red' : 'glowing-yellow');
-    $status_text = strtoupper($status);
-    echo "<td><div class='status-container' title='$tooltip'><span class='dot $status_class'></span><span class='status-text'>$status_text</span></div></td>";
+    echo "<td><span class='dot $status_class' title='$tooltip'></span></td>";
     echo "</tr>";
 }
 
