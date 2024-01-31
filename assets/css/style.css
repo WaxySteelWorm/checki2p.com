@@ -103,7 +103,7 @@ footer a:hover {
     background-color: #f2f2f2;
 }
 .status-table td {
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
 }
 .status-icon {
