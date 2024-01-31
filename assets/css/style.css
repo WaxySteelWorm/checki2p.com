@@ -211,12 +211,12 @@ header {
     z-index: 999;
     padding: 10px 10px 4px;
     background: #d3d3d3; /* Adjust the background color as needed */
-    border-bottom: 1.5px solid black; /* Adjust the border color as needed */
+    border-bottom: 1.3px solid black; /* Adjust the border color as needed */
     animation: down .5s ease .8s both;
 }
 
 header a {
-    font-weight: 700 !important;
+    font-weight: 500 !important;
     color: black; /* Adjust the text color as needed */
     text-decoration: none;
 }
