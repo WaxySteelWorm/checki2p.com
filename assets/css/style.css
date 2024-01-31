@@ -216,7 +216,7 @@ header {
 }
 
 header a {
-    font-weight: 500 !important;
+    font-weight: 600 !important;
     color: black; /* Adjust the text color as needed */
     text-decoration: none;
 }
