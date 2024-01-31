@@ -24,7 +24,7 @@ header {
 
 header a {
     font-weight: 700 !important;
-    color: white; /* Adjust the text color as needed */
+    color: black; /* Adjust the text color as needed */
     text-decoration: none;
 }
 
@@ -78,51 +78,7 @@ header li {
     </div>            </div>
 
             <div class="message">
-            <?php
-include 'db.php'; // Ensure this path is correct for your db.php file
-
-$result = $conn->query("SELECT * FROM server_status ORDER BY last_checked DESC");
-
-$last_checked_global = "";
-
-echo "<table class='status-table'>";
-echo "<tr><th>Server Name</th><th>Status</th></tr>";
-
-while($row = $result->fetch_assoc()) {
-    if (empty($last_checked_global)) {
-        $last_checked_global = $row["last_checked"];
-    }
-
-    echo "<tr>";
-    echo "<td>" . htmlspecialchars($row["server_name"]) . "</td>";
-
-    $status = $row["status"];
-    $status_message = htmlspecialchars($row["status_message"]);
-    $last_checked = new DateTime($row["last_checked"]);
-    $now = new DateTime();
-
-    $tooltip = $status === 'online' ? 'Online' : '';
-    if ($status === 'offline') {
-        $first_offline = isset($row["first_offline"]) ? new DateTime($row["first_offline"]) : $last_checked;
-        $interval = $first_offline->diff($now);
-        $tooltip = "Offline for " . $interval->format('%a days, %h hours, %i minutes');
-    } elseif ($status === 'warning') {
-        $tooltip = $status_message;
-    }
-
-    $status_class = $status === 'online' ? 'glowing-green' : ($status === 'offline' ? 'glowing-red' : 'glowing-yellow');
-    echo "<td style='text-align: center;'><span class='dot $status_class' title='$tooltip'></span></td>";
-    echo "</tr>";
-}
-
-echo "</table>";
-
-if (!empty($last_checked_global)) {
-    echo "<p>Last Checked: " . htmlspecialchars($last_checked_global) . "</p>";
-}
-
-$conn->close();
-?>
+Test stuff
 
             </div>
         </div>
