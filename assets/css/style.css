@@ -10,6 +10,7 @@ body {
     background-color: #f8f8f8;
     color: #333;
 }
+
 .logo {
     max-width: 325px;
     margin-bottom: 1px;
@@ -179,7 +180,7 @@ footer a:hover {
     z-index: 1;
     margin-bottom: 5px;
 }
-.custom-footer {
+.reseed-footer {
     background-color: #333;
     color: white;
     padding: 10px 0;
@@ -190,14 +191,14 @@ footer a:hover {
     text-align: center; /* Center the footer content */
 }
 
-.custom-footer a {
+.reseed-footer a {
     color: white;
     text-decoration: none;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.custom-footer a:hover {
+.reseed-footer a:hover {
     text-decoration: underline;
 }
 
