@@ -180,3 +180,24 @@ footer a:hover {
     z-index: 1;
     margin-bottom: 5px;
 }
+.custom-footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    position: relative; /* Adjust as needed */
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+    text-align: center; /* Center the footer content */
+}
+
+.custom-footer a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.custom-footer a:hover {
+    text-decoration: underline;
+}
