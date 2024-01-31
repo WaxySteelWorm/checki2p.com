@@ -102,6 +102,10 @@ footer a:hover {
 .status-table th {
     background-color: #f2f2f2;
 }
+.status-table td {
+    text-align: center;
+    vertical-align: middle;
+}
 .status-icon {
     height: 20px;
     vertical-align: middle;
