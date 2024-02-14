@@ -72,4 +72,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['domain'])) {
 } else {
     echo "Please submit a domain to check.";
 }
+
+
+// Assuming $domain and $success are set from earlier in the script
+// Connect to your database
+$mysqli = new mysqli("dustin.in", "dustinin_i2p_website_check", "4e9s53kDWpt3", "dustinin_i2p_website_check");
+
+// Check connection
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+
+// Insert the check
+$status = $success ? 'Online' : 'Offline';
+$stmt = $mysqli->prepare("INSERT INTO website_checks (domain, status) VALUES (?, ?)");
+$stmt->bind_param("ss", $domain, $status);
+$stmt->execute();
+
+// Retrieve the last 5 checks
+$result = $mysqli->query("SELECT domain, status FROM website_checks ORDER BY checked_at DESC LIMIT 5");
+
+$checks = [];
+while ($row = $result->fetch_assoc()) {
+    $checks[] = $row;
+}
+
+// Close connection
+$stmt->close();
+$mysqli->close();
+
+// Return checks as part of the AJAX response or handle appropriately
+
 ?>
