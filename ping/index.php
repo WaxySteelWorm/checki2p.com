@@ -26,23 +26,25 @@
             }, 2000);  // Hide confirmation after 2 seconds
         }
     </script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-    $(document).ready(function(){
-        $("#statusForm").submit(function(event){
-            event.preventDefault(); // Prevent the form from submitting via the browser
-            var domain = $("#domain").val();
-            $.ajax({
-                type: "POST",
-                url: "check_site.php",
-                data: {domain: domain},
-                success: function(data){
-                    $("#statusMessage").html(data); // Display the result in the statusMessage div
-                }
-            });
+<script>
+$(document).ready(function(){
+    $("#statusForm").submit(function(event){
+        event.preventDefault(); // Prevent the form from submitting via the browser
+        var domain = $("#domain").val();
+        $.ajax({
+            type: "POST",
+            url: "check_site.php",
+            data: {domain: domain},
+            success: function(data){
+                var statusClass = data.includes("Error") ? 'glowing-red' : 'glowing-green';
+                var statusText = data.includes("Error") ? 'I2P Website Status - Offline' : 'I2P Website Status - Online';
+                $("#statusMessage").html('<span class="dot ' + statusClass + '"></span> ' + statusText);
+                $("#domain").val(''); // Clear the input field
+            }
         });
     });
-    </script>
+});
+</script>
     <header>
     <span id="homelink"></span>
     <nav>
