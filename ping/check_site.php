@@ -2,27 +2,6 @@
 
 session_start();
 
-// Rate limiting parameters
-$limit = 5; // Maximum number of requests per time frame
-$timeout = 60; // Time frame in seconds
-
-// Initialize or update session tracking for rate limiting
-if (!isset($_SESSION['last_request_time'])) {
-    $_SESSION['last_request_time'] = time();
-    $_SESSION['request_count'] = 0;
-}
-
-if (time() - $_SESSION['last_request_time'] < $timeout) {
-    $_SESSION['request_count']++;
-} else {
-    $_SESSION['request_count'] = 1;
-    $_SESSION['last_request_time'] = time();
-}
-
-if ($_SESSION['request_count'] > $limit) {
-    echo "Rate limit exceeded. Please try again later.";
-    exit;
-}
 
 
 // Validate domain function
