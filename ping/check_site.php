@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['domain'])) {
 
 // Assuming $domain and $success are set from earlier in the script
 // Connect to your database
-$mysqli = new mysqli("dustin.in", "dustinin_i2p_website_check", "4e9s53kDWpt3", "dustinin_i2p_website_check");
+$mysqli = new mysqli("dustin.in", "dustinin_i2p_website_checks", "4e9s53kDWpt3", "dustinin_i2p_website_checks");
 
 // Check connection
 if ($mysqli->connect_error) {
