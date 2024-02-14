@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['domain'])) {
     }
 
     // Define an array of proxies
-    $proxies = ['reseed.stormycloud.org:4444', '74.48.57.60:4444'];
+    $proxies = ['reseed.stormycloud.org:4444'];
 
     $success = false;
 
