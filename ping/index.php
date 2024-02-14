@@ -26,32 +26,7 @@
             }, 2000);  // Hide confirmation after 2 seconds
         }
     </script>
-<script>
-$(document).ready(function(){
-    $("#statusForm").submit(function(event){
-        event.preventDefault(); // Prevent the form from submitting via the browser
-        var domain = $("#domain").val();
-        $.ajax({
-            type: "POST",
-            url: "check_site.php",
-            data: {domain: domain},
-            success: function(response){
-                // Update the status message
-                $("#statusMessage").html('<span class="dot ' + response.currentCheck.class + '"></span> ' + 'I2P Website Status - ' + response.currentCheck.status);
-                $("#domain").val(''); // Clear the input field
 
-                // Update the list of last 5 checks
-                var lastChecksHtml = 'Last 5 websites checked:<br>';
-                response.lastChecks.forEach(function(check) {
-                    var checkClass = check.status === 'Online' ? 'glowing-green' : 'glowing-red';
-                    lastChecksHtml += '<span class="dot ' + checkClass + '"></span> ' + check.domain + '<br>';
-                });
-                $("#lastChecks").html(lastChecksHtml);
-            }
-        });
-    });
-});
-</script>
 
     <header>
     <span id="homelink"></span>
