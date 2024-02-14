@@ -26,6 +26,23 @@
             }, 2000);  // Hide confirmation after 2 seconds
         }
     </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#statusForm").submit(function(event){
+            event.preventDefault(); // Prevent the form from submitting via the browser
+            var domain = $("#domain").val();
+            $.ajax({
+                type: "POST",
+                url: "check_site.php",
+                data: {domain: domain},
+                success: function(data){
+                    $("#statusMessage").html(data); // Display the result in the statusMessage div
+                }
+            });
+        });
+    });
+    </script>
     <header>
     <span id="homelink"></span>
     <nav>
@@ -55,11 +72,13 @@
     </div>            </div>
 
             <div class="message">
-            <form action="check_site.php" method="post">
+            <form id="statusForm">
         <label for="domain">Enter I2P Site Domain:</label>
         <input type="text" id="domain" name="domain" required>
         <input type="submit" value="Check Status">
     </form>
+    <div id="statusMessage"></div> <!-- This div will display the status message from the PHP script -->
+</body>
 
             </div>
         </div>

@@ -24,13 +24,13 @@ if ($_SESSION['request_count'] > $limit) {
     exit;
 }
 
+
 // Validate domain function
 function isValidDomain($domain) {
-    if (!preg_match("/^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/", $domain)) {
-        return false;
-    }
-    return filter_var(gethostbyname($domain), FILTER_VALIDATE_IP);
+    // Check if domain ends with .i2p
+    return preg_match("/^.+\.i2p$/", $domain);
 }
+
 
 // Check if form was submitted and domain field is not empty
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['domain'])) {
