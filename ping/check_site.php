@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['domain'])) {
     }
 
     // Define an array of proxies
-    $proxies = ['reseed.stormycloud.org:4444', 'another.proxy.com:port', 'yetanother.proxy.com:port'];
+    $proxies = ['reseed.stormycloud.org:4444', '74.48.57.60:4444'];
 
     $success = false;
 
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['domain'])) {
         curl_setopt($ch, CURLOPT_PROXY, $proxy);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 
         $response = curl_exec($ch);
 
