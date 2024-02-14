@@ -35,16 +35,24 @@ $(document).ready(function(){
             type: "POST",
             url: "check_site.php",
             data: {domain: domain},
-            success: function(data){
-                var statusClass = data.includes("Error") ? 'glowing-red' : 'glowing-green';
-                var statusText = data.includes("Error") ? 'I2P Website Status - Offline' : 'I2P Website Status - Online';
-                $("#statusMessage").html('<span class="dot ' + statusClass + '"></span> ' + statusText);
+            success: function(response){
+                // Update the status message
+                $("#statusMessage").html('<span class="dot ' + response.currentCheck.class + '"></span> ' + 'I2P Website Status - ' + response.currentCheck.status);
                 $("#domain").val(''); // Clear the input field
+
+                // Update the list of last 5 checks
+                var lastChecksHtml = 'Last 5 websites checked:<br>';
+                response.lastChecks.forEach(function(check) {
+                    var checkClass = check.status === 'Online' ? 'glowing-green' : 'glowing-red';
+                    lastChecksHtml += '<span class="dot ' + checkClass + '"></span> ' + check.domain + '<br>';
+                });
+                $("#lastChecks").html(lastChecksHtml);
             }
         });
     });
 });
 </script>
+
     <header>
     <span id="homelink"></span>
     <nav>
@@ -81,6 +89,7 @@ $(document).ready(function(){
     </form>
     <div id="statusMessage"></div> <!-- This div will display the status message from the PHP script -->
 </body>
+<div id="lastChecks">Last 5 websites checked:</div>
 
             </div>
         </div>

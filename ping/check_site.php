@@ -103,4 +103,23 @@ $mysqli->close();
 
 // Return checks as part of the AJAX response or handle appropriately
 
+
+// Assuming $domain and $success are already defined
+$statusMessage = $success ? 'Online' : 'Offline';
+$statusClass = $success ? 'glowing-green' : 'glowing-red';
+
+// Construct the JSON response
+$response = [
+    'currentCheck' => [
+        'domain' => $domain,
+        'status' => $statusMessage,
+        'class' => $statusClass
+    ],
+    'lastChecks' => $checks // Assuming $checks contains the last 5 checks from the database
+];
+
+// Send JSON response
+header('Content-Type: application/json');
+echo json_encode($response);
+
 ?>
