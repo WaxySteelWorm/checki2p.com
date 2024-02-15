@@ -57,4 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['domain'])) {
         echo "No advanced information available.";
     }
 }
+
+}
 ?>
