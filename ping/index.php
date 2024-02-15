@@ -62,30 +62,33 @@
 
             <form id="domainCheckForm">
         Domain: <input type="text" name="domain" id="domain"><br>
-        <input type="radio" name="mode" value="basic" checked> Basic
-        <input type="radio" name="mode" value="advanced"> Advanced<br>
         <button type="submit">Check Domain</button>
     </form>
     <div id="result"></div>
+    <div id="advancedInfo" style="display:none;"></div> <!-- Place for advanced info -->
 
     <script>
         $(document).ready(function(){
             $('#domainCheckForm').on('submit', function(e){
                 e.preventDefault(); // Prevent the default form submission
                 var domain = $('#domain').val();
-                var mode = $('input[name="mode"]:checked').val();
                 $.ajax({
                     url: 'check_domain.php',
                     type: 'POST',
-                    data: { domain: domain, mode: mode },
+                    data: { domain: domain },
                     success: function(response) {
                         $('#result').html(response);
+                        $('#advancedInfo').hide(); // Hide advanced info each time new search is made
                     }
                 });
             });
+
+            $(document).on('click', '#showAdvanced', function(e) {
+                e.preventDefault(); // Prevent default link action
+                $('#advancedInfo').toggle(); // Toggle visibility of advanced info
+            });
         });
     </script>
-
 
 </body>
 
