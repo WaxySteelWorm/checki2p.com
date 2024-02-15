@@ -70,31 +70,20 @@
             $('#domainCheckForm').on('submit', function(e){
                 e.preventDefault(); // Prevent default form submission
                 var domain = $('#domain').val();
-                console.log("Checking domain: " + domain); // Log for debugging
                 $.ajax({
                     url: 'check_domain.php',
                     type: 'POST',
                     data: { domain: domain },
                     success: function(response) {
                         $('#result').html(response);
-                        // Ensure advanced section is cleared and hidden on new search
-                        $('#advancedInfo').html('').hide();
+                        $('#advancedInfo').hide(); // Ensure advanced section is hidden on new search
                     }
                 });
             });
 
             $(document).on('click', '#showAdvanced', function(e){
                 e.preventDefault(); // Prevent default link action
-                var domain = $('#domain').val(); // Get the domain from the input field
-                console.log("Fetching advanced info for: " + domain); // Log for debugging
-                $.ajax({
-                    url: 'check_domain.php',
-                    type: 'GET', // Change to GET for retrieving session data
-                    data: { domain: domain }, // Send the domain as parameter
-                    success: function(advancedInfo) {
-                        $('#advancedInfo').html(advancedInfo).show(); // Set and show advanced info
-                    }
-                });
+                $('#advancedInfo').toggle(); // Toggle visibility of advanced info
             });
         });
     </script>

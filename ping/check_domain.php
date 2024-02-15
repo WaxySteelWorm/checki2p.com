@@ -1,5 +1,24 @@
 <?php
-session_start(); // Start the session at the very beginning
+session_start();
+
+// Implement rate limiting
+$rate_limit = 5; // Max requests
+$rate_time = 600; // Time in seconds (10 minutes)
+if (!isset($_SESSION['requests'])) {
+    $_SESSION['requests'] = [];
+}
+
+// Clean up old requests
+$_SESSION['requests'] = array_filter($_SESSION['requests'], function($time) use ($rate_time) {
+    return $time > time() - $rate_time;
+});
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (count($_SESSION['requests']) >= $rate_limit) {
+        die(json_encode(['error' => 'Rate limit exceeded. Please try again later.']));
+    } else {
+        $_SESSION['requests'][] = time(); // Log the time of this request
+    }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['domain'])) {
     $domain = $_POST['domain'];

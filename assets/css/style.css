@@ -235,3 +235,22 @@ header li {
     line-height: 1.6;
     margin: 0 10px;
 }
+
+/* Ping Site */
+
+.status-online {
+    color: green;
+    font-weight: bold;
+}
+.status-offline {
+    color: red;
+    font-weight: bold;
+}
+#showAdvanced {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+#showAdvanced:hover {
+    text-decoration: none;
+}
