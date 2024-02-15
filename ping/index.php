@@ -57,14 +57,44 @@
     </div>            </div>
 
             <div class="message">
-            <form id="statusForm">
-        <label for="domain">Enter I2P Site Domain:</label>
+            <form method="post" action="index.php">
+        <label for="domain">Enter I2P Domain:</label>
         <input type="text" id="domain" name="domain" required>
         <input type="submit" value="Check Status">
     </form>
-    <div id="statusMessage"></div> <!-- This div will display the status message from the PHP script -->
+    <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the domain from the form input
+    $domain = $_POST['domain'];
+
+    // Add 'http://' if missing
+    if (substr($domain, 0, 7) !== "http://") {
+        $domain = "http://" . $domain;
+    }
+
+    // The URL of the checking script
+    $checkUrl = "https://reseed.stormycloud.org/cgi-bin/check.sh?" . $domain;
+
+    // Use cURL to send the request
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $checkUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    // Check if there was a cURL error (optional)
+    if ($response === false) {
+        $response = "Error: Unable to check the domain status.";
+    }
+
+    // Display the status
+    echo "<p>Status for $domain: $response</p>";
+}
+?>
+
+
 </body>
-<div id="lastChecks">Last 5 websites checked:</div>
+
 
             </div>
         </div>
