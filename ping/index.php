@@ -39,6 +39,29 @@
         </ul>
     </nav>
 </header>
+
+<style>
+        .status-online {
+            color: green;
+            font-weight: bold;
+        }
+        .status-offline {
+            color: red;
+            font-weight: bold;
+        }
+        #showAdvanced {
+            display: block; /* Ensure this is on a new line */
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            margin-top: 10px; /* Add some space before the link */
+        }
+        #showAdvanced:hover {
+            text-decoration: none;
+        }
+    </style>
+
+
 </head>
 <body>
     <div class="container">
