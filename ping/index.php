@@ -58,85 +58,46 @@
     </div>            </div>
 
             <div class="message">
-            <!DOCTYPE html>
-<html>
-<head>
-    <title>Website Check</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
-    <form id="domainCheckForm">
+            <form id="domainCheckForm">
         Domain: <input type="text" name="domain" id="domain"><br>
         <button type="submit">Check Domain</button>
     </form>
     <div id="result"></div>
-    <!-- Removed the static advancedInfo div -->
+    <div id="advancedInfo" style="display:none;"></div>
 
     <script>
         $(document).ready(function(){
             $('#domainCheckForm').on('submit', function(e){
                 e.preventDefault(); // Prevent default form submission
                 var domain = $('#domain').val();
+                console.log("Checking domain: " + domain); // Log for debugging
                 $.ajax({
                     url: 'check_domain.php',
                     type: 'POST',
                     data: { domain: domain },
                     success: function(response) {
                         $('#result').html(response);
+                        // Ensure advanced section is cleared and hidden on new search
+                        $('#advancedInfo').html('').hide();
                     }
                 });
             });
 
-            // Delegate click event for dynamically added content
-            $(document).on('click', '#showAdvanced', function(e) {
+            $(document).on('click', '#showAdvanced', function(e){
                 e.preventDefault(); // Prevent default link action
                 var domain = $('#domain').val(); // Get the domain from the input field
+                console.log("Fetching advanced info for: " + domain); // Log for debugging
                 $.ajax({
                     url: 'check_domain.php',
                     type: 'GET', // Change to GET for retrieving session data
                     data: { domain: domain }, // Send the domain as parameter
                     success: function(advancedInfo) {
-                        $('#advancedInfo').html(advancedInfo).toggle(); // Set and toggle visibility of advanced info
+                        $('#advancedInfo').html(advancedInfo).show(); // Set and show advanced info
                     }
                 });
             });
         });
-
-        $(document).ready(function(){
-    $('#domainCheckForm').on('submit', function(e){
-        e.preventDefault(); // Prevent default form submission
-        var domain = $('#domain').val();
-        console.log("Checking domain: " + domain); // Log for debugging
-        $.ajax({
-            url: 'check_domain.php',
-            type: 'POST',
-            data: { domain: domain },
-            success: function(response) {
-                $('#result').html(response);
-                // Ensure advanced section is cleared and hidden on new search
-                $('#advancedInfo').html('').hide();
-            }
-        });
-    });
-
-    $(document).on('click', '#showAdvanced', function(e){
-        e.preventDefault(); // Prevent default link action
-        var domain = $('#domain').val(); // Get the domain from the input field
-        console.log("Fetching advanced info for: " + domain); // Log for debugging
-        $.ajax({
-            url: 'check_domain.php',
-            type: 'GET', // Change to GET for retrieving session data
-            data: { domain: domain }, // Send the domain as parameter
-            success: function(advancedInfo) {
-                $('#advancedInfo').html(advancedInfo).toggle(); // Set and toggle visibility of advanced info
-            }
-        });
-    });
-});
     </script>
-</body>
-</html>
-
 
 </body>
 
