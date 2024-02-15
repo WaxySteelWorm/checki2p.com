@@ -90,15 +90,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $statusData = json_decode($response, true);
         $status = $statusData['status'] ?? 'offline'; // Default to offline if status is not set
 
-        // Display the status with a colored dot
+        // Display the status with a colored dot on the right
         if ($status === 'online') {
-            echo "<p><span class='dot glowing-green'></span>" . htmlspecialchars($domain) . " is Online</p>";
+            echo "<p>" . htmlspecialchars($domain) . " is Online <span class='dot glowing-green'></span></p>";
         } else {
-            echo "<p><span class='dot glowing-red'></span>" . htmlspecialchars($domain) . " is Offline</p>";
+            echo "<p>" . htmlspecialchars($domain) . " is Offline <span class='dot glowing-red'></span></p>";
         }
     }
 }
 ?>
+
 
 
 
