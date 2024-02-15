@@ -84,13 +84,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if there was a cURL error (optional)
     if ($response === false) {
-        $response = "Error: Unable to check the domain status.";
-    }
+        echo "<p>Error: Unable to check the domain status.</p>";
+    } else {
+        // Decode the JSON response
+        $statusData = json_decode($response, true);
+        $status = $statusData['status'] ?? 'offline'; // Default to offline if status is not set
 
-    // Display the status
-    echo "<p>Status for $domain: $response</p>";
+        // Display the status with a colored dot
+        if ($status === 'online') {
+            echo "<p><span class='dot glowing-green'></span>" . htmlspecialchars($domain) . " is Online</p>";
+        } else {
+            echo "<p><span class='dot glowing-red'></span>" . htmlspecialchars($domain) . " is Offline</p>";
+        }
+    }
 }
 ?>
+
 
 
 </body>
