@@ -32,6 +32,7 @@
         <ul>
             <li><a href="../index.php">CheckI2P.com</a></li>
             <li><a href="../reseed/index.php">Reseed Server Status</a></li>
+            <li><a href="../ping/index.php">I2P Website Check</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>

@@ -56,7 +56,7 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I2P Website Test</title>
+    <title>I2P Website Check</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -82,12 +82,13 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
     </script>
 
 
-    <header>
+<header>
     <span id="homelink"></span>
     <nav>
         <ul>
             <li><a href="../index.php">CheckI2P.com</a></li>
             <li><a href="../reseed/index.php">Reseed Server Status</a></li>
+            <li><a href="../ping/index.php">I2P Website Check</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>

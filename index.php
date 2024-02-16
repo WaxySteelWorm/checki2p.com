@@ -26,6 +26,18 @@
             }, 2000);  // Hide confirmation after 2 seconds
         }
     </script>
+
+<header>
+    <span id="homelink"></span>
+    <nav>
+        <ul>
+            <li><a href="../index.php">CheckI2P.com</a></li>
+            <li><a href="../reseed/index.php">Reseed Server Status</a></li>
+            <li><a href="../ping/index.php">I2P Website Check</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 </head>
 <body>
     <div class="header">
