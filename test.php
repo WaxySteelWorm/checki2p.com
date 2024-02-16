@@ -1,13 +1,21 @@
+<html>
+<head>
+    <style>
+        .copy-confirmation {
+    display: none;
+    /* Add more styling here */
+}
+</style>
+</head>
+<body>
 <div class="donate-banner">
     Please consider donating:
-    <div>
-        XMR: <input type="text" value="45Gtj5tkhs4EsbnV7kkhMCRpbZUdqCQqR5qmLFVLAvbFCYaPL4pFbBkEBLJ7beHqkiJxdTBkPwFsT5EMu5jDrYBHPjQzPuv" readonly onclick="this.select();">
-    </div>
-    <div>
-        ETH: <input type="text" value="LULvg4mJc9Y37hU3sbVTMxJAPyNwyCJHw6" readonly onclick="this.select();">
-    </div>
-    <div>
-        BTC: <input type="text" value="1NDRuQNyJZmYK4AJwve1aqa56ntuXpbyA7" readonly onclick="this.select();">
-    </div>
-    <p>Click the address to select it, then copy manually.</p>
+    <button onclick="copyToClipboard('45Gtj5tkhs4EsbnV7kkhMCRpbZUdqCQqR5qmLFVLAvbFCYaPL4pFbBkEBLJ7beHqkiJxdTBkPwFsT5EMu5jDrYBHPjQzPuv', 'xmr-confirmation')">Copy XMR Address</button>
+    <button onclick="copyToClipboard('LULvg4mJc9Y37hU3sbVTMxJAPyNwyCJHw6', 'ltc-confirmation')">Copy ETH Address</button>
+    <button onclick="copyToClipboard('1NDRuQNyJZmYK4AJwve1aqa56ntuXpbyA7', 'btc-confirmation')">Copy BTC Address</button>
+    <span id="xmr-confirmation" class="copy-confirmation">Copied!</span>
+    <span id="ltc-confirmation" class="copy-confirmation">Copied!</span>
+    <span id="btc-confirmation" class="copy-confirmation">Copied!</span>
 </div>
+</body>
+</html>
