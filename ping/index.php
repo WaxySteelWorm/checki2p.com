@@ -1,5 +1,49 @@
 <?php
 session_start();
+
+$statusMessage = '';
+$advancedInfo = '';
+$displayAdvanced = false;
+
+// Check if the form has been submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['domain'])) {
+    $domain = $_POST['domain'];
+
+    // Validate the domain
+    if (!preg_match('/^[a-zA-Z0-9.-]+\.(i2p|I2P)$/', $domain)) {
+        $statusMessage = 'Invalid domain. Only domains ending in .i2p or .I2P are allowed.';
+    } else {
+        // Set up cURL
+        $url = 'http://' . $domain; // Assuming HTTP for I2P domains
+        $proxy = 'reseed.stormycloud.org:5555'; // Proxy address
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_NOBODY, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_PROXY, $proxy);
+        $output = curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        // Store headers and determine status
+        $_SESSION['advanced'][$domain] = explode("\n", trim($output));
+        if ($httpcode >= 200 && $httpcode < 300) {
+            $statusMessage = "<span>$domain is <span class='dot glowing-green'></span>online.</span>";
+        } else {
+            $statusMessage = "<span>$domain is <span class='dot glowing-red'></span>offline.</span>";
+        }
+    }
+}
+
+// Check if advanced information is requested
+if (isset($_GET['advanced'], $_GET['domain'])) {
+    $domain = $_GET['domain'];
+    if (isset($_SESSION['advanced'][$domain])) {
+        $advancedInfo = implode('<br>', $_SESSION['advanced'][$domain]);
+        $displayAdvanced = true;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,26 +105,22 @@ session_start();
     </div>            </div>
 
             <div class="message">
-            <form id="domainCheckForm" method="POST" action="check_domain.php">
+            <form id="domainCheckForm" method="POST">
         <div style="text-align: center;">
             <label for="domain">I2P Domain:</label><br>
-            <input type="text" name="domain" id="domain" value="<?php echo isset($_SESSION['lastCheckedDomain']) ? htmlspecialchars($_SESSION['lastCheckedDomain']) : ''; ?>"><br>
+            <input type="text" name="domain" id="domain" value="<?php echo htmlspecialchars($domain ?? ''); ?>"><br>
             <button type="submit">Check Domain</button>
         </div>
     </form>
-    <?php
-    if (isset($_SESSION['statusMessage'])) {
-        echo "<div id='result'>".$_SESSION['statusMessage']."</div>";
-        unset($_SESSION['statusMessage']); // Clear the message after displaying it
-    }
-    if (isset($_SESSION['lastCheckedDomain']) && isset($_SESSION['advanced'][$_SESSION['lastCheckedDomain']])) {
-        echo "<div><a href='index.php?advanced=true&domain=" . urlencode($_SESSION['lastCheckedDomain']) . "' id='showAdvanced'>Show advanced information</a></div>";
-    }
-    if (isset($_GET['advanced'], $_GET['domain']) && $_GET['advanced'] == 'true' && isset($_SESSION['advanced'][$_GET['domain']])) {
-        $domain = $_GET['domain'];
-        echo "<div id='advancedInfo'>" . implode('<br>', $_SESSION['advanced'][$domain]) . "</div>";
-    }
-    ?>
+    <?php if (!empty($statusMessage)): ?>
+        <div id="result"><?php echo $statusMessage; ?></div>
+        <div><?php if (!$displayAdvanced): ?>
+            <a href="?advanced=true&domain=<?php echo urlencode($domain); ?>">Show advanced information</a>
+        <?php endif; ?></div>
+    <?php endif; ?>
+    <?php if ($displayAdvanced && !empty($advancedInfo)): ?>
+        <div id="advancedInfo"><?php echo $advancedInfo; ?></div>
+    <?php endif; ?>
             </div>
         </div>
     </div>
