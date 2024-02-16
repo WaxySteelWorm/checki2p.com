@@ -58,44 +58,31 @@
     </div>            </div>
 
             <div class="message">
-            <form id="domainCheckForm">
-        <label id="domainLabel">I2P Domain:</label>
-        <input type="text" name="domain" id="domain"><br>
-        <button type="submit">Check Domain</button>
+            <form id="domainCheckForm" method="POST" action="check_domain.php">
+        <div style="text-align: center;">
+            <label for="domain">I2P Domain:</label><br>
+            <input type="text" name="domain" id="domain">
+            <button type="submit">Check Domain</button>
+        </div>
     </form>
-    <div id="result"></div>
-    <div id="advancedInfo" style="display:none;"></div>
+    <?php
+    // Display the result if it exists in the session
+    session_start();
+    if (isset($_SESSION['statusMessage'])) {
+        echo "<div id='result'>".$_SESSION['statusMessage']."</div>";
+        // Offer advanced info if available
+        if (isset($_SESSION['advanced'][$_SESSION['lastCheckedDomain']])) {
+            echo "<div><a href='check_domain.php?advanced=true&domain=" . htmlspecialchars($_SESSION['lastCheckedDomain']) . "' id='showAdvanced'>Show advanced information</a></div>";
+        }
+        // Clear the message after displaying it
+        unset($_SESSION['statusMessage']);
+    }
 
-    <script>
-        $(document).ready(function(){
-            $('#domainCheckForm').on('submit', function(e){
-                e.preventDefault(); // Prevent default form submission
-                var domain = $('#domain').val();
-                $.ajax({
-                    url: 'check_domain.php',
-                    type: 'POST',
-                    data: { domain: domain },
-                    success: function(response) {
-                        $('#result').html(response);
-                        $('#advancedInfo').html('').hide();
-                    }
-                });
-            });
-
-            $(document).on('click', '#showAdvanced', function(e){
-                e.preventDefault(); // Prevent default link action
-                var domain = $('#domain').val(); // Get the domain from the input field
-                $.ajax({
-                    url: 'check_domain.php',
-                    type: 'GET',
-                    data: { domain: domain },
-                    success: function(advancedInfo) {
-                        $('#advancedInfo').html(advancedInfo).toggle(); // Set and toggle visibility
-                    }
-                });
-            });
-        });
-    </script>
+    if (isset($_SESSION['advancedInfo'])) {
+        echo "<div id='advancedInfo'>" . $_SESSION['advancedInfo'] . "</div>";
+        unset($_SESSION['advancedInfo']);
+    }
+    ?>
             </div>
         </div>
     </div>
