@@ -4,17 +4,21 @@ session_start();
 $statusMessage = '';
 $advancedInfo = '';
 $displayAdvanced = false;
+$domain = ''; // Initialize the domain variable
 
 // Check if the form has been submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['domain'])) {
-    $domain = $_POST['domain'];
+    $domain = trim($_POST['domain']);
+
+    // Remove 'http://' or 'https://' from the domain if present
+    $domain = preg_replace('#^https?://#', '', $domain);
 
     // Validate the domain
     if (!preg_match('/^[a-zA-Z0-9.-]+\.(i2p|I2P)$/', $domain)) {
         $statusMessage = 'Invalid domain. Only domains ending in .i2p or .I2P are allowed.';
     } else {
-        // Set up cURL
-        $url = 'http://' . $domain; // Assuming HTTP for I2P domains
+        // Proceed with domain status check
+        $url = 'http://' . $domain; // Prepend 'http://' for the cURL request
         $proxy = 'reseed.stormycloud.org:5555'; // Proxy address
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_NOBODY, true);
@@ -39,6 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['domain'])) {
 // Check if advanced information is requested
 if (isset($_GET['advanced'], $_GET['domain'])) {
     $domain = $_GET['domain'];
+    $domain = preg_replace('#^https?://#', '', $domain); // Sanitize the domain again
+
     if (isset($_SESSION['advanced'][$domain])) {
         $advancedInfo = implode('<br>', $_SESSION['advanced'][$domain]);
         $displayAdvanced = true;
