@@ -24,16 +24,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['domain'])) {
     curl_close($ch);
 
     // Check if online and store result
-    $status = $httpcode >= 200 && $httpcode < 300 ? "$domain is online." : "$domain is offline.";
+    if ($httpcode >= 200 && $httpcode < 300) {
+        $status = "<span class='dot glowing-green'></span><span>$domain is online.</span>";
+    } else {
+        $status = "<span class='dot glowing-red'></span><span>$domain is offline.</span>";
+    }
     $_SESSION['advanced'][$domain] = explode("\n", trim($output)); // Store headers
 
     echo $status . ' <a href="#" id="showAdvanced">Show advanced information</a>';
 } elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['domain'])) {
     $domain = $_GET['domain'];
     if (isset($_SESSION['advanced'][$domain])) {
+        echo "<div>"; // Ensure advanced information is contained
         foreach ($_SESSION['advanced'][$domain] as $header) {
             echo htmlspecialchars($header) . '<br>';
         }
+        echo "</div>";
     } else {
         echo "No advanced information available.";
     }

@@ -39,29 +39,6 @@
         </ul>
     </nav>
 </header>
-
-<style>
-        .status-online {
-            color: green;
-            font-weight: bold;
-        }
-        .status-offline {
-            color: red;
-            font-weight: bold;
-        }
-        #showAdvanced {
-            display: block; /* Ensure this is on a new line */
-            cursor: pointer;
-            color: blue;
-            text-decoration: underline;
-            margin-top: 10px; /* Add some space before the link */
-        }
-        #showAdvanced:hover {
-            text-decoration: none;
-        }
-    </style>
-
-
 </head>
 <body>
     <div class="container">
@@ -93,14 +70,12 @@
             $('#domainCheckForm').on('submit', function(e){
                 e.preventDefault(); // Prevent default form submission
                 var domain = $('#domain').val();
-                console.log("Checking domain: " + domain); // Log for debugging
                 $.ajax({
                     url: 'check_domain.php',
                     type: 'POST',
                     data: { domain: domain },
                     success: function(response) {
                         $('#result').html(response);
-                        // Ensure advanced section is cleared and hidden on new search
                         $('#advancedInfo').html('').hide();
                     }
                 });
@@ -109,11 +84,10 @@
             $(document).on('click', '#showAdvanced', function(e){
                 e.preventDefault(); // Prevent default link action
                 var domain = $('#domain').val(); // Get the domain from the input field
-                console.log("Fetching advanced info for: " + domain); // Log for debugging
                 $.ajax({
                     url: 'check_domain.php',
-                    type: 'GET', // Change to GET for retrieving session data
-                    data: { domain: domain }, // Send the domain as parameter
+                    type: 'GET',
+                    data: { domain: domain },
                     success: function(advancedInfo) {
                         $('#advancedInfo').html(advancedInfo).show(); // Set and show advanced info
                     }
