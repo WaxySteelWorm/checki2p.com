@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,26 +64,21 @@
             <form id="domainCheckForm" method="POST" action="check_domain.php">
         <div style="text-align: center;">
             <label for="domain">I2P Domain:</label><br>
-            <input type="text" name="domain" id="domain">
+            <input type="text" name="domain" id="domain" value="<?php echo isset($_SESSION['lastCheckedDomain']) ? htmlspecialchars($_SESSION['lastCheckedDomain']) : ''; ?>"><br>
             <button type="submit">Check Domain</button>
         </div>
     </form>
     <?php
-    // Display the result if it exists in the session
-    session_start();
     if (isset($_SESSION['statusMessage'])) {
         echo "<div id='result'>".$_SESSION['statusMessage']."</div>";
-        // Offer advanced info if available
-        if (isset($_SESSION['advanced'][$_SESSION['lastCheckedDomain']])) {
-            echo "<div><a href='check_domain.php?advanced=true&domain=" . htmlspecialchars($_SESSION['lastCheckedDomain']) . "' id='showAdvanced'>Show advanced information</a></div>";
-        }
-        // Clear the message after displaying it
-        unset($_SESSION['statusMessage']);
+        unset($_SESSION['statusMessage']); // Clear the message after displaying it
     }
-
-    if (isset($_SESSION['advancedInfo'])) {
-        echo "<div id='advancedInfo'>" . $_SESSION['advancedInfo'] . "</div>";
-        unset($_SESSION['advancedInfo']);
+    if (isset($_SESSION['lastCheckedDomain']) && isset($_SESSION['advanced'][$_SESSION['lastCheckedDomain']])) {
+        echo "<div><a href='index.php?advanced=true&domain=" . urlencode($_SESSION['lastCheckedDomain']) . "' id='showAdvanced'>Show advanced information</a></div>";
+    }
+    if (isset($_GET['advanced'], $_GET['domain']) && $_GET['advanced'] == 'true' && isset($_SESSION['advanced'][$_GET['domain']])) {
+        $domain = $_GET['domain'];
+        echo "<div id='advancedInfo'>" . implode('<br>', $_SESSION['advanced'][$domain]) . "</div>";
     }
     ?>
             </div>
