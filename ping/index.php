@@ -59,7 +59,8 @@
 
             <div class="message">
             <form id="domainCheckForm">
-        Domain: <input type="text" name="domain" id="domain"><br>
+        <label id="domainLabel">I2P Domain:</label>
+        <input type="text" name="domain" id="domain"><br>
         <button type="submit">Check Domain</button>
     </form>
     <div id="result"></div>
@@ -89,13 +90,12 @@
                     type: 'GET',
                     data: { domain: domain },
                     success: function(advancedInfo) {
-                        $('#advancedInfo').html(advancedInfo).show(); // Set and show advanced info
+                        $('#advancedInfo').html(advancedInfo).toggle(); // Set and toggle visibility
                     }
                 });
             });
         });
     </script>
-
             </div>
         </div>
     </div>

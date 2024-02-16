@@ -25,13 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['domain'])) {
 
     // Check if online and store result
     if ($httpcode >= 200 && $httpcode < 300) {
-        $status = "<span class='dot glowing-green'></span><span>$domain is online.</span>";
+        $status = "<span>$domain is </span><span class='dot glowing-green'></span><span>online.</span>";
     } else {
-        $status = "<span class='dot glowing-red'></span><span>$domain is offline.</span>";
+        $status = "<span>$domain is </span><span class='dot glowing-red'></span><span>offline.</span>";
     }
     $_SESSION['advanced'][$domain] = explode("\n", trim($output)); // Store headers
 
-    echo $status . ' <a href="#" id="showAdvanced">Show advanced information</a>';
+    echo "<div id='status'>$status</div>"; // Wrap status in a div for styling
+    echo '<div><a href="#" id="showAdvanced">Show advanced information</a></div>'; // Ensure it's on a new line
 } elseif ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['domain'])) {
     $domain = $_GET['domain'];
     if (isset($_SESSION['advanced'][$domain])) {
