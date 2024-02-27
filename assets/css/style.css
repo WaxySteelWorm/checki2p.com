@@ -1,210 +1,117 @@
 body {
-    background-color: #f0f8ff;
+    background-color: #f0f8ff; /* Updated background color */
     text-align: center;
     margin: 0;
     padding: 0;
     font-family: helvetica, sans-serif;
 }
-.header {
+.header, .container {
     padding: 20px;
-    background-color: #f8f8f8;
+    background-color: #f8f8f8; /* Shared properties */
     color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 .logo {
     max-width: 325px;
     margin-bottom: 1px;
 }
-.status-indicator {
-    height: 20px;
-    width: 20px;
+.status-indicator, .dot {
+    height: 20px; /* Updated for consistency */
+    width: 20px; /* Updated for consistency */
     border-radius: 50%;
     display: inline-block;
     margin-right: 10px;
     vertical-align: middle;
 }
-.proxy-status {
-    background-color: green;
+.proxy-status, .glowing-green {
+    background-color: #00cd00; /* Merged color */
 }
-.no-proxy-status {
-    background-color: red;
+.no-proxy-status, .glowing-red {
+    background-color: #ff0000;
 }
-.message {
+.message, .status-container, .donate-banner {
     display: inline-block;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 .donate-banner {
     background-color: #d3d3d3;
     padding: 10px;
     font-size: 1em;
-    margin-bottom: 20px;
     font-weight: bold;
 }
-.donate-banner span, .donate-banner .copy-confirmation {
+.donate-banner span, .donate-banner .copy-confirmation, .status-text {
     cursor: pointer;
     color: black; 
     margin-left: 10px;
     margin-right: 10px;
     font-weight: bold;
+    display: none; /* For .copy-confirmation */
 }
-.copy-confirmation {
-    display: none;
-    color: green;
-}
-footer {
+footer, .reseed-footer {
     background-color: #333;
     color: white;
     padding: 10px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    font-weight: bold; 
-}
-footer a {
-    color: white; /* Keep the links white */
-    text-decoration: none; 
-    margin-left: 10px;
-    margin-right: 10px;
-}
-footer a:hover {
-    text-decoration: underline; /* Optional: adds underline on hover */
-}
-.status-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-}
-.status-light {
-    height: 60px;
-    margin-right: 10px;
-}
-.connected-text, .location-text {
-    display: inline-block;
-    margin-bottom: 5px; /* Adjust this value as needed */
-}
-
-
-
-.status-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-.status-table th, .status-table td {
-    text-align: left;
-    padding: 8px;
-}
-.status-table th {
-    background-color: #f2f2f2;
-}
-.status-table td {
-    text-align: left;
-    vertical-align: middle;
-}
-.status-icon {
-    height: 20px;
-    vertical-align: middle;
-}
-.last-checked {
-    margin-top: 20px;
-}
-.dot {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-}
-.glowing-green {
-    background-color: #00cd00;
-}
-.glowing-red {
-    background-color: #ff0000;
-}
-
-.glowing-yellow {
-    background-color: #ffcc00; /* Yellow color for warning */
-}
-.dot:hover::after {
-    content: attr(title);
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 100%;
-    background-color: #fff;
-    color: #333;
-    padding: 5px 10px;
-    border-radius: 6px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
-    z-index: 1;
-    margin-bottom: 5px;
-}
-.status-text {
-    cursor: pointer;
-}
-
-.dot:hover::after, .status-text:hover::after {
-    content: attr(title);
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 100%;
-    background-color: #fff;
-    color: #333;
-    padding: 5px 10px;
-    border-radius: 6px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
-    z-index: 1;
-    margin-bottom: 5px;
-}
-.status-container:hover::after {
-    content: attr(title);
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 100%;
-    background-color: #fff;
-    color: #333;
-    padding: 5px 10px;
-    border-radius: 6px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
-    z-index: 1;
-    margin-bottom: 5px;
-}
-.reseed-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    position: relative; /* Adjust as needed */
+    position: absolute; /* Adjusted to absolute for footer, relative for reseed-footer */
     bottom: 0;
     width: 100%;
     font-weight: bold;
     text-align: center; /* Center the footer content */
 }
-
-.reseed-footer a {
-    color: white;
+footer a, .reseed-footer a {
+    color: white; /* Keep the links white */
     text-decoration: none;
     margin-left: 10px;
     margin-right: 10px;
 }
-
-.reseed-footer a:hover {
-    text-decoration: underline;
+footer a:hover, .reseed-footer a:hover {
+    text-decoration: underline; /* Optional: adds underline on hover */
 }
-
-
-/* Banner */
-
+table, .status-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-color: #aaa; /* Updated as per your request */
+}
+th, td, .status-table th, .status-table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    font-size: 11pt; /* Updated as per your request */
+}
+tr:hover, .status-table tr:hover {background-color:#f5f5f5;}
+.status-table th {
+    background-color: #f2f2f2;
+}
+.status-icon {
+    height: 20px;
+    vertical-align: middle;
+}
+.glowing-yellow {
+    background-color: #ffcc00; /* Yellow color for warning */
+}
+/* Additional pseudo-elements and status classes merged */
+.dot:hover::after, .status-container:hover::after, .status-text:hover::after {
+    content: attr(title);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    background-color: #fff;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    z-index: 1;
+    margin-bottom: 5px;
+}
+/* Merged Banner and Ping Site styles */
 header {
     position: sticky;
     top: 0;
@@ -214,42 +121,31 @@ header {
     border-bottom: 1.3px solid black; /* Adjust the border color as needed */
     animation: down .5s ease .8s both;
 }
-
-header a {
+header a, #showAdvanced {
     font-weight: 600 !important;
     color: black; /* Adjust the text color as needed */
     text-decoration: none;
+    cursor: pointer; /* For #showAdvanced */
 }
-
 header ul {
     display: flex;
     justify-content: space-around;
-    justify-content: right;
-    flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding: 0 0 8px;
 }
-
 header li {
     line-height: 1.6;
     margin: 0 10px;
 }
-
-/* Ping Site */
-
+.status-online, .status-offline {
+    font-weight: bold;
+}
 .status-online {
     color: green;
-    font-weight: bold;
 }
 .status-offline {
     color: red;
-    font-weight: bold;
-}
-#showAdvanced {
-    cursor: pointer;
-    color: blue;
-    text-decoration: underline;
 }
 #showAdvanced:hover {
     text-decoration: none;
