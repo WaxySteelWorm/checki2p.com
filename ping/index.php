@@ -97,7 +97,14 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
         }
     </script>
 
-
+<style>
+  tr, th, td, table {
+    border-color: #aaa;
+    padding: 4px 8px;
+    text-align: left;
+    font-size: 11pt;
+  }
+</style>
 <header>
     <span id="homelink"></span>
     <nav>
