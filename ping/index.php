@@ -72,70 +72,64 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>I2P Website Status Checker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I2P Website Check</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   
+        <!-- ... [Defines Crypto Copy to Clipboard function] ... -->
+        <script>
+        function copyToClipboard(text, elementId) {
+            var textarea = document.createElement("textarea");
+            textarea.textContent = text;
+            textarea.style.position = "fixed";  
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+
+            // Show copy confirmation
+            var confirmation = document.getElementById(elementId);
+            confirmation.style.display = "inline";
+            setTimeout(function() {
+                confirmation.style.display = "none";
+            }, 2000);  // Hide confirmation after 2 seconds
         }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        input[type="text"], button {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            opacity: 0.8;
-        }
-        .status {
-            margin-top: 20px;
-        }
-        .dot {
-            height: 15px;
-            width: 15px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 5px;
-        }
-        .glowing-green {
-            background-color: #4CAF50;
-            box-shadow: 0 0 8px #4CAF50;
-        }
-        .glowing-red {
-            background-color: #f44336;
-            box-shadow: 0 0 8px #f44336;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            text-align: left;
-            padding: 8px;
-            border-bottom: 1px solid #ddd;
-        }
-        tr:hover {background-color:#f5f5f5;}
-    </style>
+    </script>
+
+
+<header>
+    <span id="homelink"></span>
+    <nav>
+        <ul>
+            <li><a href="../index.php">CheckI2P.com</a></li>
+            <li><a href="../reseed/index.php">Reseed Server Status</a></li>
+            <li><a href="../ping/index.php">I2P Website Check</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 </head>
 <body>
     <div class="container">
-        <h1>I2P Website Status Checker</h1>
-        <form method="POST">
+        <div class="header">
+            <img src="../assets/images/logo.svg" alt="Logo" class="logo">
+        </div>
+
+        <div class="content">
+            <div class="donate-banner">
+        Please consider donating:
+        <span onclick="copyToClipboard('45Gtj5tkhs4EsbnV7kkhMCRpbZUdqCQqR5qmLFVLAvbFCYaPL4pFbBkEBLJ7beHqkiJxdTBkPwFsT5EMu5jDrYBHPjQzPuv', 'xmr-confirmation')">XMR</span> |  <span onclick="copyToClipboard('LULvg4mJc9Y37hU3sbVTMxJAPyNwyCJHw6', 'ltc-confirmation')">ETH</span> |
+       
+        <span onclick="copyToClipboard('1NDRuQNyJZmYK4AJwve1aqa56ntuXpbyA7', 'btc-confirmation')">BTC</span>
+        <span id="xmr-confirmation" class="copy-confirmation">Copied!</span>
+        <span id="ltc-confirmation" class="copy-confirmation">Copied!</span>
+        <span id="btc-confirmation" class="copy-confirmation">Copied!</span>
+    </div>            </div>
+
+            <div class="message">
+            <form method="POST">
             <input type="text" id="domain" name="domain" placeholder="Enter I2P Domain" value="<?php echo htmlspecialchars($domain); ?>">
             <button type="submit">Check Status</button>
         </form>
@@ -149,5 +143,12 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
             <div><?php echo $advancedInfo; ?></div>
         <?php endif; ?>
     </div>
+
+    <footer class="reseed-footer">
+    Created by <a href="https://stormycloud.org/">stormycloud.org</a> | 
+    <a href="https://github.com/WaxySteelWorm/checki2p.com" target="_blank">Github</a> | 
+    <a href="https://twitter.com/StormyCloudInc" target="_blank">Twitter</a> | 
+    <a href="https://www.instagram.com/stormycloudinc/" target="_blank">Instagram</a>
+</footer>
 </body>
 </html>
