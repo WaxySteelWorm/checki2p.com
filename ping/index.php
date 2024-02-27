@@ -134,7 +134,7 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
             <button type="submit">Check Status</button>
         </form>
         <?php if (!empty($statusMessage)): ?>
-            <div class="status"><?php echo $statusMessage; ?></div>
+            <div class="status"><?php echo $statusMessage; ?></div><br>
             <?php if (!$displayAdvanced): ?>
                 <a href="?advanced=true&domain=<?php echo urlencode($domain); ?>">Show Advanced Information</a>
             <?php endif; ?>
