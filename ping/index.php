@@ -41,9 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['domain'])) {
 
         // Set the status message based on the HTTP status code
         if ($httpcode >= 200 && $httpcode < 300) {
-            $statusMessage = "<span>$domain is <span class='dot glowing-green'></span>online.</span>";
+            $statusMessage = "<span><span class='dot glowing-green'></span>$domain is Online.</span>";
         } else {
-            $statusMessage = "<span>$domain is <span class='dot glowing-red'></span>offline.</span>";
+            $statusMessage = "<span><span class='dot glowing-red'></span>$domain is Offline.</span>";
         }
     }
 }
