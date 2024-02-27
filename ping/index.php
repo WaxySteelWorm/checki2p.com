@@ -76,7 +76,6 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
     <title>I2P Website Check</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
         <!-- ... [Defines Crypto Copy to Clipboard function] ... -->
         <script>
