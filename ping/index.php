@@ -74,52 +74,73 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
     <meta charset="UTF-8">
     <title>I2P Website Status Checker</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
         .container {
-            text-align: center;
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], button {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .status {
             margin-top: 20px;
         }
-
         .dot {
             height: 15px;
             width: 15px;
             border-radius: 50%;
             display: inline-block;
+            margin-right: 5px;
         }
-
         .glowing-green {
             background-color: #4CAF50;
             box-shadow: 0 0 8px #4CAF50;
         }
-
         .glowing-red {
             background-color: #f44336;
             box-shadow: 0 0 8px #f44336;
         }
-
         table {
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
             border-collapse: collapse;
         }
-
         th, td {
-            border: 1px solid black;
-            padding: 10px;
             text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
         }
+        tr:hover {background-color:#f5f5f5;}
     </style>
 </head>
 <body>
     <div class="container">
         <h1>I2P Website Status Checker</h1>
         <form method="POST">
-            <label for="domain">Enter I2P Domain:</label><br>
-            <input type="text" id="domain" name="domain" value="<?php echo htmlspecialchars($domain); ?>"><br>
+            <input type="text" id="domain" name="domain" placeholder="Enter I2P Domain" value="<?php echo htmlspecialchars($domain); ?>">
             <button type="submit">Check Status</button>
         </form>
         <?php if (!empty($statusMessage)): ?>
-            <p><?php echo $statusMessage; ?></p>
+            <div class="status"><?php echo $statusMessage; ?></div>
             <?php if (!$displayAdvanced): ?>
                 <a href="?advanced=true&domain=<?php echo urlencode($domain); ?>">Show Advanced Information</a>
             <?php endif; ?>
