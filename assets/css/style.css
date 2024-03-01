@@ -254,3 +254,54 @@ header li {
 #showAdvanced:hover {
     text-decoration: none;
 }
+
+/* Donate */
+
+#donate_options {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+  }
+  #donate_options th, #donate_options td {
+    text-align: center !important;
+  }
+  #donate_options thead th {
+    padding-bottom: 8px;
+  }
+  #donate_options tbody td {
+    font-family: DejaVu Sans Mono, monospace;
+    font-size: 65%;
+    word-break: break-all;
+    text-align:justify;
+    user-select: all;
+    color: #ff0;
+    width: 33.33333%;
+    line-height: 1.05;
+    padding: 8px 20px 26px;
+    border-bottom: 1px solid rgba(255,255,255,.6);
+  }
+  #donate_options tbody span {
+    display: inline-block;
+    border-radius: 4px;
+    background: #10172b;
+    box-shadow: 0 0 0 1px #203069, inset 0 0 0 1px #000, inset 0 0 3px 3px rgba(0,0,0,.5);
+    padding: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 180px;	
+  }
+  #donate_options tbody span:hover {
+    overflow: auto;
+    text-overflow: clip;
+  }
+  #donate_options span::selection {
+    background: #ff0;
+    color: #000;
+  }
+  #donate_options tbody span {
+    box-shadow: 0 0 0 1px #101834, inset 0 0 0 1px #000, inset 0 0 3px 3px rgba(0,0,0,.5);
+  }
+  #donate_options tbody span {
+    box-shadow: 0 0 0 1px #101834, inset 0 0 0 1px #000, inset 0 0 3px 3px rgba(0,0,0,.5);
+  }
