@@ -44,7 +44,7 @@
         <img src="../assets/images/logo.svg" alt="Logo" class="logo">
     </div>
     <div class="donate-banner">
-    </div>
+
     <div class="message">
     <div class="donation-section">
     <h2 class="donation-title">Support CheckI2P.com</h2>
