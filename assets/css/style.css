@@ -305,7 +305,7 @@ header li {
 .donation-section {
     background-color: #f4f7f6;
     margin: 100px; /* Increased margin for clearer spacing around the section */
-    padding: 20px;
+    padding: 50px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; /* Ensures padding and border are included in the total width and height */
