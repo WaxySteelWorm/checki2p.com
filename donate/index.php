@@ -56,10 +56,10 @@
     <table id="donate_options">
 <thead>
   <tr>
-    <th>Crypto Name 1</th> <!-- Replace 'Crypto Name 1' with actual name -->
-    <th>Crypto Name 2</th> <!-- Replace 'Crypto Name 2' with actual name -->
-    <th>Crypto Name 3</th> <!-- Replace 'Crypto Name 3' with actual name -->
-    <th>Crypto Name 4</th> <!-- Replace 'Crypto Name 4' with actual name -->
+    <th>Monero (XMR)</th> 
+    <th>Bitcoin (BTC)</th> 
+    <th>Ethereum (ETH)</th> 
+    <th>Litecoin (LTC)</th> 
   </tr>
   <tr>
     <th><img src="../assets/images/xmr.png" width="150" height="150"></th>
