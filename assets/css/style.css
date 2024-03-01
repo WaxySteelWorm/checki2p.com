@@ -261,26 +261,26 @@ header li {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
-  }
-  #donate_options th, #donate_options td {
+}
+#donate_options th, #donate_options td {
     text-align: center !important;
-  }
-  #donate_options thead th {
-    padding-bottom: 8px;
-  }
-  #donate_options tbody td {
+}
+#donate_options thead th {
+    padding-bottom: 4px; /* Reduced from 8px to make it closer */
+}
+#donate_options tbody td {
     font-family: DejaVu Sans Mono, monospace;
     font-size: 65%;
     word-break: break-all;
     text-align:justify;
     user-select: all;
     color: rgb(0, 0, 0);
-    width: 33.33333%;
+    width: 25%; /* Adjusted for equal spacing */
     line-height: 1.05;
-    padding: 8px 20px 26px;
+    padding: 8px 10px; /* Reduced horizontal padding */
     border-bottom: 1px solid rgba(255,255,255,.6);
-  }
-  #donate_options tbody span {
+}
+#donate_options tbody span {
     display: inline-block;
     border-radius: 4px;
     background: #d1d1d1;
@@ -289,13 +289,14 @@ header li {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 180px;	
-  }
-  #donate_options tbody span:hover {
+}
+#donate_options tbody span:hover {
     overflow: auto;
     text-overflow: clip;
-  }
-  #donate_options span::selection {
+}
+#donate_options span::selection {
     background: #ff0;
     color: #000;
-  }
+}
+
 

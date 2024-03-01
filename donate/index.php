@@ -53,8 +53,14 @@
         <span id="btc-confirmation" class="copy-confirmation">Copied!</span>
     </div>
     <div class="message">
-    <table id=donate_options>
+    <table id="donate_options">
 <thead>
+  <tr>
+    <th>Crypto Name 1</th> <!-- Replace 'Crypto Name 1' with actual name -->
+    <th>Crypto Name 2</th> <!-- Replace 'Crypto Name 2' with actual name -->
+    <th>Crypto Name 3</th> <!-- Replace 'Crypto Name 3' with actual name -->
+    <th>Crypto Name 4</th> <!-- Replace 'Crypto Name 4' with actual name -->
+  </tr>
   <tr>
     <th><img src="../assets/images/xmr.png" width="150" height="150"></th>
     <th><img src="../assets/images/btc.png" width="150" height="150"></th>
@@ -68,7 +74,6 @@
     <td><span>1NDRuQNyJZmYK4AJwve1aqa56ntuXpbyA7</span></td>
     <td><span>0x07FA04Bd6660dCB8f0C9338F37aBdA67A656CA2F</span></td>
     <td><span>LULvg4mJc9Y37hU3sbVTMxJAPyNwyCJHw6</span></td>
-
   </tr>
 </tbody>
 </table>
