@@ -304,7 +304,7 @@ header li {
 
 .donation-section {
     background-color: #f4f7f6;
-    margin: 20px;
+    margin: 40px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -320,10 +320,16 @@ header li {
     color: #666;
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 10px; /* Adjust the bottom margin as needed */
+    margin-bottom: 20px;
 }
 
-.donation-text strong {
+.donation-text strong, .bold-link {
     color: #333;
     font-weight: bold;
+    text-decoration: none; /* Removes the default underline from links */
 }
+
+.bold-link:hover {
+    text-decoration: underline; /* Adds underline on hover for better user interaction */
+}
+
