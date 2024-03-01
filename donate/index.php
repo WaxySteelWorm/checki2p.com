@@ -43,10 +43,9 @@
     <div class="header">
         <img src="../assets/images/logo.svg" alt="Logo" class="logo">
     </div>
-    <div class="donate-banner">
 
-    </div>
     <div class="message">
+    CheckI2P.com is proudly developed and maintained by StormyCloud Inc. Your donation will contribute to the ongoing operations of StormyCloud Inc. With community support, we aim to expand our influence within the privacy-focused community. All donations are directed towards the operating expenses of StormyCloud Inc and are exclusively used to fund initiatives centered on privacy.
     <table id="donate_options">
 <thead>
   <tr>
