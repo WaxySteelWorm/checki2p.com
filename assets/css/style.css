@@ -274,7 +274,7 @@ header li {
     word-break: break-all;
     text-align:justify;
     user-select: all;
-    color: #ff0;
+    color: rgb(0, 0, 0);
     width: 33.33333%;
     line-height: 1.05;
     padding: 8px 20px 26px;
@@ -283,8 +283,8 @@ header li {
   #donate_options tbody span {
     display: inline-block;
     border-radius: 4px;
-    background: #10172b;
-    box-shadow: 0 0 0 1px #203069, inset 0 0 0 1px #000, inset 0 0 3px 3px rgba(0,0,0,.5);
+    background: #d1d1d1;
+    box-shadow: 0 0 0 1px #737479, inset 0 0 0 1px #000, inset 0 0 3px 3px rgba(0,0,0,.5);
     padding: 12px;
     white-space: nowrap;
     overflow: hidden;

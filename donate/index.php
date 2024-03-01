@@ -57,8 +57,9 @@
 <thead>
   <tr>
     <th><img src="../assets/images/xmr.png" width="150" height="150"></th>
-    <th><img src="../assets/images/bitcoin.png" width="150" height="150"></th>
+    <th><img src="../assets/images/btc.png" width="150" height="150"></th>
     <th><img src="../assets/images/eth.png" width="150" height="150"></th>
+    <th><img src="../assets/images/ltc.png" width="150" height="150"></th>
   </tr>
 </thead>
 <tbody>
@@ -66,6 +67,8 @@
     <td><span>45Gtj5tkhs4EsbnV7kkhMCRpbZUdqCQqR5qmLFVLAvbFCYaPL4pFbBkEBLJ7beHqkiJxdTBkPwFsT5EMu5jDrYBHPjQzPuv</span></td>
     <td><span>1NDRuQNyJZmYK4AJwve1aqa56ntuXpbyA7</span></td>
     <td><span>0x07FA04Bd6660dCB8f0C9338F37aBdA67A656CA2F</span></td>
+    <td><span>LULvg4mJc9Y37hU3sbVTMxJAPyNwyCJHw6</span></td>
+
   </tr>
 </tbody>
 </table>
