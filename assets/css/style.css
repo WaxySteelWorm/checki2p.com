@@ -304,10 +304,11 @@ header li {
 
 .donation-section {
     background-color: #f4f7f6;
-    margin: 40px;
+    margin: 60px; /* Increased margin for clearer spacing around the section */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensures padding and border are included in the total width and height */
 }
 
 .donation-title {
@@ -320,7 +321,7 @@ header li {
     color: #666;
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Provides spacing between paragraphs */
 }
 
 .donation-text strong, .bold-link {
@@ -330,6 +331,5 @@ header li {
 }
 
 .bold-link:hover {
-    text-decoration: underline; /* Adds underline on hover for better user interaction */
+    text-decoration: underline; /* Adds an underline on hover */
 }
-
