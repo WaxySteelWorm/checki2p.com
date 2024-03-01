@@ -39,7 +39,7 @@ body {
 }
 .donate-banner {
     background-color: #d3d3d3;
-    padding: 4px;
+    padding: 8px;
     font-size: 1em;
     margin-bottom: 20px;
     font-weight: bold;
@@ -303,7 +303,6 @@ header li {
 
 
 .donation-section {
-    background-color: #f4f7f6;
     margin: 100px; /* Increased margin for clearer spacing around the section */
     padding: 10px;
     border-radius: 8px;
