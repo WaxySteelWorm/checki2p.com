@@ -76,26 +76,7 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
     <title>I2P Website Check</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.ico">
-   
-        <!-- ... [Defines Crypto Copy to Clipboard function] ... -->
-        <script>
-        function copyToClipboard(text, elementId) {
-            var textarea = document.createElement("textarea");
-            textarea.textContent = text;
-            textarea.style.position = "fixed";  
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textarea);
 
-            // Show copy confirmation
-            var confirmation = document.getElementById(elementId);
-            confirmation.style.display = "inline";
-            setTimeout(function() {
-                confirmation.style.display = "none";
-            }, 2000);  // Hide confirmation after 2 seconds
-        }
-    </script>
 
 <style>
   tr, th, td, table {
@@ -108,11 +89,11 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
 <header>
     <span id="homelink"></span>
     <nav>
-        <ul>
+    <ul>
             <li><a href="../index.php">CheckI2P.com</a></li>
             <li><a href="../reseed/index.php">Reseed Server Status</a></li>
             <li><a href="../ping/index.php">I2P Website Check</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="../donate/index.php">Donate Today!</a></li>
         </ul>
     </nav>
 </header>
@@ -125,13 +106,7 @@ if (isset($_GET['advanced'], $_GET['domain'])) {
 
         <div class="content">
             <div class="donate-banner">
-        Please consider donating:
-        <span onclick="copyToClipboard('45Gtj5tkhs4EsbnV7kkhMCRpbZUdqCQqR5qmLFVLAvbFCYaPL4pFbBkEBLJ7beHqkiJxdTBkPwFsT5EMu5jDrYBHPjQzPuv', 'xmr-confirmation')">XMR</span> |  <span onclick="copyToClipboard('LULvg4mJc9Y37hU3sbVTMxJAPyNwyCJHw6', 'ltc-confirmation')">ETH</span> |
        
-        <span onclick="copyToClipboard('1NDRuQNyJZmYK4AJwve1aqa56ntuXpbyA7', 'btc-confirmation')">BTC</span>
-        <span id="xmr-confirmation" class="copy-confirmation">Copied!</span>
-        <span id="ltc-confirmation" class="copy-confirmation">Copied!</span>
-        <span id="btc-confirmation" class="copy-confirmation">Copied!</span>
     </div>            </div>
 
             <div class="message">
