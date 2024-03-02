@@ -30,13 +30,12 @@ body {
     background-color: red;
 }
 .message {
-    display: block; /* Changed from inline-block for full width */
+    display: inline-block;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 20px auto; /* Centered and added vertical margin */
-    max-width: 960px; /* Set a max-width for larger screens */
+    margin-bottom: 20px;
 }
 .donate-banner {
     background-color: #d3d3d3;
@@ -304,10 +303,10 @@ header li {
 
 
 .donation-section {
-    margin: 20px 0px; /* Reduced margin for internal section spacing */
+    margin: 20px 0px; 
     padding: 20px;
-    background-color: #f4f7f6; /* Slightly different background to stand out */
-    border-radius: 8px; /* Maintains rounded corners */
+    background-color: #f4f7f6; 
+    border-radius: 8px; 
 }
 
 .donation-title {
@@ -320,24 +319,52 @@ header li {
     color: #666;
     font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 20px; /* Provides spacing between paragraphs */
+    margin-bottom: 20px; 
 }
 
 .donation-text strong, .bold-link {
     color: #333;
     font-weight: bold;
-    text-decoration: none; /* Removes the default underline from links */
+    text-decoration: none; 
 }
 
 .bold-link:hover {
-    text-decoration: underline; /* Adds an underline on hover */
+    text-decoration: underline; 
 }
 
 .donation-text a, .donation-text strong {
     color: #333;
     font-weight: bold;
-    text-decoration: none; /* No underline by default */
+    text-decoration: none; 
 }
 .donation-text a:hover {
-    text-decoration: underline; /* Underline on hover for links */
+    text-decoration: underline;
+}
+
+.donation-message {
+    display: block; 
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 40px auto; 
+    max-width: 960px; 
+}
+
+.donation-section {
+    margin: 20px 0; 
+    padding: 20px;
+    background-color: #f4f7f6;
+    border-radius: 8px;
+}
+
+.donation-message .donation-text, .donation-message .donation-text a, .donation-message .donation-text strong {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    text-decoration: none; 
+}
+
+.donation-message .donation-text a:hover {
+    text-decoration: underline; 
 }

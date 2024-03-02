@@ -7,26 +7,6 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.ico">
     
-        <!-- ... [Defines Crypto Copy to Clipboard function] ... -->
-    <script>
-        function copyToClipboard(text, elementId) {
-            var textarea = document.createElement("textarea");
-            textarea.textContent = text;
-            textarea.style.position = "fixed";  
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textarea);
-
-            // Show copy confirmation
-            var confirmation = document.getElementById(elementId);
-            confirmation.style.display = "inline";
-            setTimeout(function() {
-                confirmation.style.display = "none";
-            }, 2000);  // Hide confirmation after 2 seconds
-        }
-    </script>
-
 <header>
     <span id="homelink"></span>
     <nav>
@@ -44,7 +24,7 @@
         <img src="../assets/images/logo.svg" alt="Logo" class="logo">
     </div>
 
-    <div class="message">
+    <div class="donation-message">
     <div class="donation-section">
         <h2 class="donation-title">Support CheckI2P.com</h2>
         <p class="donation-text">CheckI2P.com is proudly developed and maintained by <a href="your-link-here" class="bold-link">StormyCloud Inc.</a> Your donation will contribute to the ongoing operations of StormyCloud Inc. With community support, we aim to expand our influence within the privacy-focused community.</p>
