@@ -30,12 +30,13 @@ body {
     background-color: red;
 }
 .message {
-    display: inline-block;
+    display: block; /* Changed from inline-block for full width */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+    margin: 20px auto; /* Centered and added vertical margin */
+    max-width: 960px; /* Set a max-width for larger screens */
 }
 .donate-banner {
     background-color: #d3d3d3;
@@ -303,11 +304,10 @@ header li {
 
 
 .donation-section {
-    margin: 100px; /* Increased margin for clearer spacing around the section */
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; /* Ensures padding and border are included in the total width and height */
+    margin: 20px 0px; /* Reduced margin for internal section spacing */
+    padding: 20px;
+    background-color: #f4f7f6; /* Slightly different background to stand out */
+    border-radius: 8px; /* Maintains rounded corners */
 }
 
 .donation-title {
@@ -331,4 +331,13 @@ header li {
 
 .bold-link:hover {
     text-decoration: underline; /* Adds an underline on hover */
+}
+
+.donation-text a, .donation-text strong {
+    color: #333;
+    font-weight: bold;
+    text-decoration: none; /* No underline by default */
+}
+.donation-text a:hover {
+    text-decoration: underline; /* Underline on hover for links */
 }
