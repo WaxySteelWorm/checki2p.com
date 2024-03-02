@@ -58,7 +58,7 @@
 </tbody>
 </table>
 <center>
-Please visit <a href="https://stormycloud.org/donate/" class='bold-link'>StormyCloud Inc</a>for other donation methods.
+Please visit <a href="https://stormycloud.org/donate/" class='bold-link'>StormyCloud Inc</a> for other donation methods.
 </center>
 
 </div>
