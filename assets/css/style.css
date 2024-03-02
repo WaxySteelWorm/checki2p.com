@@ -4,11 +4,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: helvetica, sans-serif;
-    background-image: url('../assets/images/SCR-20240302-mtal.png'); /* Add your watermark image URL */
-    background-repeat: no-repeat;
-    background-position: center; /* Center the background image */
-    background-size: cover; /* Cover the entire page */
-    opacity: 0.1; /* Adjust for desired transparency, lower means more transparent */
 }
 .header {
     padding: 20px;
