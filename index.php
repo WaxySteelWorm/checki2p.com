@@ -6,8 +6,6 @@
     <title>I2P Proxy Check</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon.ico">
-    
-
 
 <header>
     <span id="homelink"></span>
