@@ -23,11 +23,13 @@
     <div class="header">
         <img src="../assets/images/logo.svg" alt="Logo" class="logo">
     </div>
-
+    <div class="content">
+            <div class="donate-banner">
+</div>
     <div class="donation-message">
     <div class="donation-section">
         <h2 class="donation-title">Support CheckI2P.com</h2>
-        <p class="donation-text">CheckI2P.com is proudly developed and maintained by <a href="your-link-here" class="bold-link">StormyCloud Inc.</a> Your donation will contribute to the ongoing operations of StormyCloud Inc. With community support, we aim to expand our influence within the privacy-focused community.</p>
+        <p class="donation-text">CheckI2P.com is proudly developed and maintained by <a href="https://stormycloud.org/" class="bold-link">StormyCloud Inc.</a> Your donation will contribute to the ongoing operations of StormyCloud Inc. With community support, we aim to expand our influence within the privacy-focused community.</p>
         <p class="donation-text">All donations are directed towards the operating expenses of StormyCloud Inc and are exclusively used to fund initiatives centered on privacy.</p>
     </div>
 
@@ -55,6 +57,10 @@
   </tr>
 </tbody>
 </table>
+<center>
+Please visit <a href="https://stormycloud.org/donate/" class='bold-link'>StormyCloud Inc</a>for other donation methods.
+</center>
+
 </div>
     <footer>
     Created by <a href=https://stormycloud.org/>stormycloud.org</a> | <a href="https://github.com/WaxySteelWorm/checki2p.com" target="_blank">Github</a> | <a href="https://twitter.com/StormyCloudInc" target="_blank">Twitter</a> | <a href="https://www.instagram.com/stormycloudinc/" target="_blank">Instagram</a>    </footer>
