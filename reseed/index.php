@@ -35,15 +35,42 @@
             <?php
 include 'db.php'; // Ensure this path is correct for your db.php file
 
-// Modified SQL query
-$result = $conn->query("SELECT *, SUBSTRING_INDEX(SUBSTRING_INDEX(server_name, '.', -2), '.', 1) AS secondary_domain, SUBSTRING_INDEX(server_name, '.', -1) AS tld FROM server_status ORDER BY tld, secondary_domain, last_checked DESC");
+// Fetch all server statuses
+$result = $conn->query("SELECT * FROM server_status");
 
+// Initialize an array to hold server data
+$serverData = [];
+
+// Populate server data
+while($row = $result->fetch_assoc()) {
+    $serverData[] = $row;
+}
+
+// Define the custom sort function
+function customSort($a, $b) {
+    $aParts = explode('.', $a['server_name']);
+    $bParts = explode('.', $b['server_name']);
+    
+    $aDomain = implode('.', array_slice($aParts, -2)); // Get domain and sub-domain
+    $bDomain = implode('.', array_slice($bParts, -2)); // Get domain and sub-domain
+    
+    if ($aDomain == $bDomain) {
+        return $aParts[count($aParts) - 3] <=> $bParts[count($bParts) - 3]; // Sort by sub-domain if available
+    }
+    
+    return $aDomain <=> $bDomain; // Sort by domain
+}
+
+// Sort server data based on custom sort function
+usort($serverData, 'customSort');
+
+// Display sorted server statuses
 $last_checked_global = "";
 
 echo "<table class='status-table'>";
 echo "<tr><th>Server Name</th><th>Status</th></tr>";
 
-while($row = $result->fetch_assoc()) {
+foreach ($serverData as $row) {
     if (empty($last_checked_global)) {
         $last_checked_global = $row["last_checked"];
     }
