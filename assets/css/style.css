@@ -1,14 +1,9 @@
 body {
-    background-color: #f0f8ff; /* Light blue background */
+    background-color: #f0f8ff;
     text-align: center;
     margin: 0;
     padding: 0;
     font-family: helvetica, sans-serif;
-    background-image: url('https://i.ibb.co/BzBDR3x/SCR-20240302-mtal.png'); /* Add your watermark image URL here */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; /* Cover the entire page but keep aspect ratio */
-    opacity: 0.5; /* Adjust watermark opacity for lightness */
 }
 .header {
     padding: 20px;
